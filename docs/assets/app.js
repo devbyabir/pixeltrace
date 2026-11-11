@@ -116,6 +116,7 @@ async function classify(blob, label) {
     $("#score-text").innerHTML = `Model score: <strong>${(100 * pAI).toFixed(1)} %</strong> AI-generated` +
       ` <span class="small">(${pAI >= 0.5 ? "above" : "below"} the 0.5 threshold)</span>`;
     $("#model-name").textContent = RESULTS.deployment.label;
+    $("#score").dataset.pAi = String(pAI);           // exact score, used by automated parity checks
     $("#score").hidden = false;
     setStatus(label ? `Input: ${label}` : "Done.");
   } catch (e) {
