@@ -1,0 +1,13 @@
+torch>=2.3
+torchvision>=0.18
+timm>=1.0
+numpy>=1.26
+pandas>=2.1
+pillow>=10.0
+scikit-learn>=1.4
+matplotlib>=3.8
+pyyaml>=6.0
+# export / verification / data download
+onnx>=1.16
+onnxruntime>=1.18
+gdown>=5.0

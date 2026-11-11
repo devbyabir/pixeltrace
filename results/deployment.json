@@ -1,0 +1,12 @@
+{
+  "run": "efficientnet_b0",
+  "model": "efficientnet_b0.ra_in1k",
+  "selection_metric": "best_val_roc_auc",
+  "selection_value": 0.9524,
+  "candidates": {
+    "efficientnet_b0": 0.9524,
+    "resnet50": 0.9355,
+    "simple_cnn": 0.8769
+  },
+  "note": "Chosen on the validation split only; test metrics were not used for this choice."
+}

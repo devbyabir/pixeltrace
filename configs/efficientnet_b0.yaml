@@ -1,0 +1,8 @@
+# ImageNet-pretrained EfficientNet-B0 (B7 in the old notebook was 64M params for 1.4k training images)
+model: efficientnet_b0.ra_in1k
+run_name: efficientnet_b0
+lr: 3.0e-4
+weight_decay: 0.05
+epochs: 25
+patience: 7
+batch_size: 32

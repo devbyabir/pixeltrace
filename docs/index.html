@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelTrace</title>
+<meta name="description" content="PixelTrace: an audited AI-generated vs real image classifier, with honest evaluation and an in-browser demo.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio project · Abir Ahmmed (devbyabir)</p>
+    <h1>PixelTrace</h1>
+    <p class="lede">Classifying AI-generated vs real images, after finding out why the first version's 99&nbsp;% accuracy couldn't be trusted.</p>
+    <nav class="toc">
+      <a href="#audit">Audit</a><a href="#results">Results</a><a href="#demo">Try it</a><a href="#limits">Limitations</a><a href="#repro">Reproduce</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="audit">
+    <h2>What the audit found</h2>
+    <p>The original notebooks reported 93–99.6&nbsp;% test accuracy. Re-reading them and the data showed four problems:</p>
+    <div class="cards">
+      <article class="card"><h3>Leaky split</h3><p>The train/test split was taken from a dataset that reshuffles every epoch, so test images could be seen during training.</p></article>
+      <article class="card"><h3>Duplicates</h3><p><span data-k="audit.dupes">…</span> of the <span data-k="audit.raw">…</span> files were exact copies: 1,998 images appeared twice under different names.</p></article>
+      <article class="card"><h3>Test set used for selection</h3><p>The same images were used to pick the checkpoint and to report the final score.</p></article>
+      <article class="card"><h3>Metadata shortcut risk</h3><p>A model that never sees a pixel, only aspect ratio, PNG/JPEG, EXIF and file size, scores <strong data-k="audit.meta_test_acc">…</strong> on the test split.</p></article>
+    </div>
+    <p class="note">The metadata result shows the labels were predictable from non-content cues, a <em>risk</em> for any model trained on the raw files. It does not prove what the legacy CNNs actually learned. After cleaning (square crop, JPEG re-encode, metadata stripped), the remaining file-size cue scores <span data-k="audit.clean_test_acc">…</span>; other shortcuts may remain (see limitations).</p>
+  </section>
+
+  <section id="results">
+    <h2>Results on the rebuilt pipeline</h2>
+    <p>Fixed, file-level split of <span data-k="split.total">…</span> unique images (train <span data-k="split.train">…</span> / val <span data-k="split.val">…</span> / test <span data-k="split.test">…</span>). Checkpoints and the deployment model were chosen on <strong>validation</strong>; the test split was evaluated once.</p>
+    <div id="results-status" class="status">Loading results…</div>
+    <div class="table-wrap"><table id="results-table" hidden>
+      <thead><tr><th>Model</th><th>Params (M)</th><th>Val ROC-AUC</th><th>Test accuracy (95% CI)</th><th>Macro-F1</th><th>AI precision / recall</th><th>Test ROC-AUC (95% CI)</th><th>ROC-AUC @ JPEG q50</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <figure id="chart" hidden><svg id="chart-svg" role="img" aria-label="Validation and test ROC-AUC per model"></svg><figcaption>Validation vs test ROC-AUC. The test split has only <span data-k="split.test">…</span> images, so differences inside the confidence intervals are not meaningful.</figcaption></figure>
+    <p id="robust-note" class="note" hidden></p>
+  </section>
+
+  <section id="demo">
+    <h2>Try the deployed model in your browser</h2>
+    <p class="warn"><strong>This is a model score, not proof of authenticity.</strong> The model was trained on 1,400 images from unknown generators and can be confidently wrong, especially on generators, edits or compressions it never saw. Your image never leaves your device: it is processed locally by ONNX Runtime Web.</p>
+    <div class="demo">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept="image/jpeg,image/png,image/webp">
+        <span>Choose or drop an image</span>
+      </label>
+      <div class="samples" id="samples"><span>Or try a synthetic test pattern:</span></div>
+      <div class="out">
+        <canvas id="preview" width="224" height="224" aria-label="Preprocessed input"></canvas>
+        <div>
+          <div id="demo-status" class="status">Model not loaded yet.</div>
+          <div id="score" hidden>
+            <div class="meter"><div id="meter-fill"></div></div>
+            <p id="score-text"></p>
+            <p class="small">Model: <span id="model-name"></span>. Score = P(AI-generated) from the network's softmax; 0.5 is the decision threshold used in evaluation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="limits">
+    <h2>Limitations</h2>
+    <ul>
+      <li><strong>Small, single-source dataset</strong> of 2,000 images from unknown generators. Results say nothing about other generators or real-world photos.</li>
+      <li><strong>Residual confound:</strong> real photos were downscaled from much higher resolutions than the AI images. Resampling statistics can still separate the classes, and cleaning does not remove that.</li>
+      <li><strong>Small test set</strong> (<span data-k="split.test">…</span> images): confidence intervals span several percentage points.</li>
+      <li><strong>Unknown dataset licence:</strong> no dataset images or image-derived figures are published here.</li>
+      <li><strong>Browser vs Python:</strong> the browser reproduces the Python preprocessing exactly except for the JPEG re-encode step, which uses the browser's codec; see the <a href="parity.html">parity check</a>.</li>
+    </ul>
+  </section>
+
+  <section id="repro">
+    <h2>Reproduce</h2>
+    <p>Code, configs, the split manifest (hashes only) and the Colab notebook are in the repository. The full pipeline (data audit → training → robustness → Grad-CAM → model selection → ONNX export → verification) runs with one command and stops on the first error.</p>
+    <p class="small" id="env-line"></p>
+  </section>
+</main>
+
+<footer class="wrap small">
+  <p>© Abir Ahmmed (devbyabir). All rights reserved; no open-source licence. Built with PyTorch, timm and ONNX Runtime Web.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

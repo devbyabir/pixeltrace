@@ -1,0 +1,9 @@
+# Pretrained ViT-S/16 (the old notebook trained a ViT from scratch, which needs far more data)
+model: vit_small_patch16_224.augreg_in21k_ft_in1k
+run_name: vit_small
+lr: 5.0e-5
+weight_decay: 0.05
+epochs: 25
+patience: 7
+batch_size: 32
+warmup_epochs: 2

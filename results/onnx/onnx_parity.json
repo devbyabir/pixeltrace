@@ -1,0 +1,88 @@
+{
+  "run": "efficientnet_b0",
+  "model": "efficientnet_b0.ra_in1k",
+  "onnx": "pixeltrace.onnx",
+  "onnx_bytes": 16020904,
+  "onnx_sha256": "710f9b7194c9bd61e12601e24cb6769fc9d369ab21d461e57ed017336d9e8b42",
+  "input": {
+    "name": "pixels",
+    "shape": [
+      null,
+      3,
+      224,
+      224
+    ],
+    "range": "[0,1] RGB"
+  },
+  "output": {
+    "name": "scores",
+    "columns": [
+      "real",
+      "ai"
+    ]
+  },
+  "test_images": 300,
+  "torch_vs_onnx_max_abs_diff": 5.4836273193359375e-06,
+  "torch_vs_onnx_mean_abs_diff": 2.682623119198979e-07,
+  "label_agreement": 1.0,
+  "tolerance": 0.0001,
+  "passed": true,
+  "reference_images": [
+    {
+      "file": "pattern_alpha.png",
+      "file_sha256": "77e90d7bc578d14587afe034a09c79d0199cc9e0d14b367f90924fa5fb3bddcf",
+      "p_ai_torch": 0.993297,
+      "p_ai_onnx": 0.993297,
+      "tensor_sha256": "a70b925d2bb9c60cd1629a3bbe8067df34aa1f1a20434a1556d828ff4fcb3b1a",
+      "tensor_mean": 0.6681291460990906
+    },
+    {
+      "file": "pattern_exif_rotated.jpg",
+      "file_sha256": "d74db1a898aee09e3d3ac7e99c0a0193c8821725d5e1c25be7d62af136e94d38",
+      "p_ai_torch": 0.011498,
+      "p_ai_onnx": 0.011498,
+      "tensor_sha256": "436cbd231efabf55fef2aaabc204da8959f3bf6a9494de41b43c8dea40b49041",
+      "tensor_mean": 0.5308924317359924
+    },
+    {
+      "file": "pattern_landscape.jpg",
+      "file_sha256": "008eb5731b7c40c513b960381d93127c2e06affa9eed879d08cfdd5f7f379b82",
+      "p_ai_torch": 0.655128,
+      "p_ai_onnx": 0.655131,
+      "tensor_sha256": "d8449f1badea28751e7ff04faf745f4ce505a3753595ded2fdf34f8e0bdc969a",
+      "tensor_mean": 0.533653736114502
+    },
+    {
+      "file": "pattern_palette.png",
+      "file_sha256": "3c644ef670425dde0923e8caaa5e3b85e2a1a3ca8a61f5024de13b572806a4ec",
+      "p_ai_torch": 0.994926,
+      "p_ai_onnx": 0.994926,
+      "tensor_sha256": "44a6ffe3f31fd4e754e9e5378ee113f2598fff80545a64659077371e151ee06f",
+      "tensor_mean": 0.5592979788780212
+    },
+    {
+      "file": "pattern_portrait_noise.jpg",
+      "file_sha256": "79538f9dce92351fd7c7ad90e9b87473a8f61b1a99383f1c073e08f639d31860",
+      "p_ai_torch": 1e-06,
+      "p_ai_onnx": 1e-06,
+      "tensor_sha256": "6ff28876ce8c23e4d0d3a1ec599aabcd17536f6954f69503cf07298848df7905",
+      "tensor_mean": 0.4963918626308441
+    },
+    {
+      "file": "pattern_square.png",
+      "file_sha256": "0f662b0e9a3d836d8ea7f1ecf610a86e0119a0a36af85b913a4f2492edb5debb",
+      "p_ai_torch": 0.945259,
+      "p_ai_onnx": 0.945258,
+      "tensor_sha256": "061a8a72d32233d1df2644bd251d8fd79526df3295e86856c19d25511557adc4",
+      "tensor_mean": 0.4249227046966553
+    },
+    {
+      "file": "pattern_tiny.jpg",
+      "file_sha256": "48cbab99d86ab63de959352277443061ab01e592d4ea1edb63d19f2e532ca954",
+      "p_ai_torch": 0.999993,
+      "p_ai_onnx": 0.999993,
+      "tensor_sha256": "00c31fa64d9519408bb481111ebcbba983ba613789d7896536fc7af1616f66f0",
+      "tensor_mean": 0.5305882692337036
+    }
+  ]
+}

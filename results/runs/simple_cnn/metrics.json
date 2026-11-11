@@ -1,0 +1,34 @@
+{
+  "n": 300,
+  "accuracy": 0.7667,
+  "balanced_accuracy": 0.7667,
+  "macro_f1": 0.7666,
+  "ai_precision": 0.7778,
+  "ai_recall": 0.7467,
+  "ai_f1": 0.7619,
+  "real_recall": 0.7867,
+  "confusion_matrix": {
+    "tn": 118,
+    "fp": 32,
+    "fn": 38,
+    "tp": 112
+  },
+  "threshold": 0.5,
+  "roc_auc": 0.8351,
+  "average_precision": 0.8172,
+  "accuracy_95ci": [
+    0.72,
+    0.8133
+  ],
+  "roc_auc_95ci": [
+    0.7879,
+    0.8811
+  ],
+  "model": "simple_cnn",
+  "run": "simple_cnn",
+  "best_epoch": 55,
+  "epochs_run": 60,
+  "smoke": false,
+  "best_val_roc_auc": 0.8769,
+  "params_m": 3.13
+}

@@ -1,0 +1,9 @@
+# Baseline trained from scratch (cleaned-up successor of the original custom CNN)
+model: simple_cnn
+pretrained: false
+run_name: simple_cnn
+lr: 1.0e-3
+weight_decay: 1.0e-4
+epochs: 60
+patience: 12
+batch_size: 32

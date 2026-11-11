@@ -1,0 +1,11 @@
+{
+  "mode": "full",
+  "models": [
+    "simple_cnn",
+    "resnet50",
+    "efficientnet_b0"
+  ],
+  "started": "2026-11-11 18:52:54",
+  "finished": "2026-11-11 18:53:55",
+  "deployment": "efficientnet_b0"
+}

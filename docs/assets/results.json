@@ -1,0 +1,116 @@
+{
+ "audit": {
+  "raw": 3998,
+  "dupes": 1998,
+  "meta_test_acc": 0.9767,
+  "clean_test_acc": 0.5433
+ },
+ "split": {
+  "total": 2000,
+  "train": 1400,
+  "val": 300,
+  "test": 300
+ },
+ "models": [
+  {
+   "run": "efficientnet_b0",
+   "model": "efficientnet_b0.ra_in1k",
+   "params_m": 4.01,
+   "best_epoch": 23,
+   "epochs_run": 25,
+   "best_val_roc_auc": 0.9524,
+   "accuracy": 0.8433,
+   "accuracy_95ci": [
+    0.8033,
+    0.8867
+   ],
+   "macro_f1": 0.8433,
+   "ai_precision": 0.8552,
+   "ai_recall": 0.8267,
+   "roc_auc": 0.9038,
+   "roc_auc_95ci": [
+    0.8662,
+    0.9398
+   ],
+   "roc_auc_jpeg50": 0.8864,
+   "n": 300,
+   "label": "EfficientNet-B0"
+  },
+  {
+   "run": "resnet50",
+   "model": "resnet50.a1_in1k",
+   "params_m": 23.51,
+   "best_epoch": 13,
+   "epochs_run": 20,
+   "best_val_roc_auc": 0.9355,
+   "accuracy": 0.8067,
+   "accuracy_95ci": [
+    0.7633,
+    0.85
+   ],
+   "macro_f1": 0.8067,
+   "ai_precision": 0.8067,
+   "ai_recall": 0.8067,
+   "roc_auc": 0.8975,
+   "roc_auc_95ci": [
+    0.8593,
+    0.9306
+   ],
+   "roc_auc_jpeg50": 0.8908,
+   "n": 300,
+   "label": "ResNet-50"
+  },
+  {
+   "run": "simple_cnn",
+   "model": "simple_cnn",
+   "params_m": 3.13,
+   "best_epoch": 55,
+   "epochs_run": 60,
+   "best_val_roc_auc": 0.8769,
+   "accuracy": 0.7667,
+   "accuracy_95ci": [
+    0.72,
+    0.8133
+   ],
+   "macro_f1": 0.7666,
+   "ai_precision": 0.7778,
+   "ai_recall": 0.7467,
+   "roc_auc": 0.8351,
+   "roc_auc_95ci": [
+    0.7879,
+    0.8811
+   ],
+   "roc_auc_jpeg50": 0.8299,
+   "n": 300,
+   "label": "Simple CNN (scratch)"
+  }
+ ],
+ "deployment": {
+  "run": "efficientnet_b0",
+  "label": "EfficientNet-B0",
+  "selection_metric": "best_val_roc_auc"
+ },
+ "environment": {
+  "torch": "2.14.1+cu130",
+  "timm": "1.0.31",
+  "device": "Tesla T4"
+ },
+ "verification_passed": true,
+ "robustness_note": "Robustness of EfficientNet-B0: ROC-AUC 0.904 on clean test images, 0.869 after JPEG q30 and 0.841 after x0.25 down-scaling. Errors are one-sided: AI recall drops from 0.83 to 0.67 while real-image recall stays at 0.84 or higher, so degraded AI images tend to be scored as real.",
+ "samples": [
+  "pattern_alpha.png",
+  "pattern_exif_rotated.jpg",
+  "pattern_landscape.jpg",
+  "pattern_palette.png",
+  "pattern_portrait_noise.jpg",
+  "pattern_square.png",
+  "pattern_tiny.jpg"
+ ],
+ "model": {
+  "file": "model/pixeltrace.onnx",
+  "bytes": 16020904,
+  "sha256": "710f9b7194c9bd61e12601e24cb6769fc9d369ab21d461e57ed017336d9e8b42",
+  "input_size": 224,
+  "torch_vs_onnx_max_abs_diff": 5.4836273193359375e-06
+ }
+}

@@ -1,0 +1,7 @@
+model: vgg16_bn.tv_in1k
+run_name: vgg16_bn
+lr: 5.0e-5
+weight_decay: 0.05
+epochs: 25
+patience: 7
+batch_size: 32

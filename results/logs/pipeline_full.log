@@ -1,0 +1,563 @@
+$ gdown -q <PRIVATE_DATASET_ID> -O /content/pixeltrace/data/raw_dataset.zip
+
+[exit 0, 88s]
+
+$ /usr/bin/python3 scripts/prepare_data.py --raw /content/pixeltrace/data/raw --out data/processed --report-dir /content/pixeltrace/results/_rebuild_check
+Scanning /content/pixeltrace/data/raw ...
+  3998 files -> 2000 unique images (1998 exact copies, ~0 near-duplicates, 0 cross-class groups / 0 files dropped)
+  metadata-only classifier (fit on train) on RAW files: test acc 0.977, AUC 0.982
+  processed 250/2000
+  processed 500/2000
+  processed 750/2000
+  processed 1000/2000
+  processed 1250/2000
+  processed 1500/2000
+  processed 1750/2000
+  processed 2000/2000
+  file-size-only classifier on CLEANED files: test acc 0.543, AUC 0.564
+Done. 2000 images -> data/processed/images; report -> /content/pixeltrace/results/_rebuild_check/data_audit.md
+
+[exit 0, 687s]
+
+$ /usr/bin/python3 scripts/verify_manifest.py --reference-digest results/manifest/digest.json --candidate /content/pixeltrace/results/_rebuild_check/manifest/splits_manifest.csv
+split/label/source/raw-hash digest: IDENTICAL
+processed-image digest: IDENTICAL
+
+[exit 0, 0s]
+
+$ /usr/bin/python3 -m pixeltrace.train --config configs/simple_cnn.yaml --output-dir /content/pixeltrace/results/runs --backup-dir /content/drive/MyDrive/pixeltrace_backup/full/runs/simple_cnn
+[simple_cnn] device=cuda -> /content/pixeltrace/results/runs/simple_cnn
+  epoch=1  train_loss=0.6468  val_loss=0.8343  val_accuracy=0.6300  val_roc_auc=0.6996  lr=0.0010  seconds=14.3000
+  saved best checkpoint (epoch 1) + backed up
+  epoch=2  train_loss=0.6192  val_loss=0.7485  val_accuracy=0.6333  val_roc_auc=0.7436  lr=0.0010  seconds=9.2000
+  saved best checkpoint (epoch 2) + backed up
+  epoch=3  train_loss=0.6044  val_loss=0.5984  val_accuracy=0.6900  val_roc_auc=0.7566  lr=0.0010  seconds=11.0000
+  saved best checkpoint (epoch 3) + backed up
+  epoch=4  train_loss=0.5723  val_loss=0.6182  val_accuracy=0.6633  val_roc_auc=0.7884  lr=0.0010  seconds=11.4000
+  saved best checkpoint (epoch 4) + backed up
+  epoch=5  train_loss=0.5570  val_loss=0.5664  val_accuracy=0.7133  val_roc_auc=0.7958  lr=0.0010  seconds=9.8000
+  saved best checkpoint (epoch 5) + backed up
+  epoch=6  train_loss=0.5589  val_loss=0.5708  val_accuracy=0.7167  val_roc_auc=0.7792  lr=0.0010  seconds=10.3000
+  epoch=7  train_loss=0.5292  val_loss=0.6392  val_accuracy=0.7033  val_roc_auc=0.7792  lr=0.0010  seconds=11.0000
+  epoch=8  train_loss=0.5183  val_loss=0.5288  val_accuracy=0.7433  val_roc_auc=0.8235  lr=0.0010  seconds=10.2000
+  saved best checkpoint (epoch 8) + backed up
+  epoch=9  train_loss=0.5313  val_loss=0.6154  val_accuracy=0.6800  val_roc_auc=0.7827  lr=0.0010  seconds=9.5000
+  epoch=10  train_loss=0.5216  val_loss=0.5296  val_accuracy=0.7333  val_roc_auc=0.8240  lr=0.0009  seconds=11.3000
+  saved best checkpoint (epoch 10) + backed up
+  epoch=11  train_loss=0.5143  val_loss=0.9102  val_accuracy=0.6067  val_roc_auc=0.8013  lr=0.0009  seconds=10.8000
+  epoch=12  train_loss=0.5074  val_loss=0.5856  val_accuracy=0.7000  val_roc_auc=0.8079  lr=0.0009  seconds=9.3000
+  epoch=13  train_loss=0.4738  val_loss=0.6087  val_accuracy=0.7333  val_roc_auc=0.7952  lr=0.0009  seconds=11.0000
+  epoch=14  train_loss=0.4698  val_loss=0.5421  val_accuracy=0.7433  val_roc_auc=0.8235  lr=0.0009  seconds=10.8000
+  epoch=15  train_loss=0.4711  val_loss=0.5339  val_accuracy=0.7467  val_roc_auc=0.8180  lr=0.0009  seconds=8.9000
+  epoch=16  train_loss=0.4634  val_loss=0.5351  val_accuracy=0.7400  val_roc_auc=0.8249  lr=0.0008  seconds=10.9000
+  saved best checkpoint (epoch 16) + backed up
+  epoch=17  train_loss=0.4530  val_loss=0.6147  val_accuracy=0.6933  val_roc_auc=0.7958  lr=0.0008  seconds=10.9000
+  epoch=18  train_loss=0.4728  val_loss=0.5814  val_accuracy=0.7167  val_roc_auc=0.8212  lr=0.0008  seconds=9.3000
+  epoch=19  train_loss=0.4457  val_loss=0.5344  val_accuracy=0.7367  val_roc_auc=0.8160  lr=0.0008  seconds=11.2000
+  epoch=20  train_loss=0.4442  val_loss=0.5443  val_accuracy=0.7433  val_roc_auc=0.8266  lr=0.0008  seconds=11.1000
+  saved best checkpoint (epoch 20) + backed up
+  epoch=21  train_loss=0.4424  val_loss=0.5652  val_accuracy=0.7500  val_roc_auc=0.8111  lr=0.0007  seconds=9.8000
+  epoch=22  train_loss=0.4306  val_loss=0.5304  val_accuracy=0.7567  val_roc_auc=0.8274  lr=0.0007  seconds=10.5000
+  saved best checkpoint (epoch 22) + backed up
+  epoch=23  train_loss=0.4287  val_loss=0.5168  val_accuracy=0.7733  val_roc_auc=0.8376  lr=0.0007  seconds=10.9000
+  saved best checkpoint (epoch 23) + backed up
+  epoch=24  train_loss=0.4273  val_loss=0.5033  val_accuracy=0.7567  val_roc_auc=0.8403  lr=0.0007  seconds=11.5000
+  saved best checkpoint (epoch 24) + backed up
+  epoch=25  train_loss=0.4407  val_loss=0.5067  val_accuracy=0.7800  val_roc_auc=0.8496  lr=0.0006  seconds=8.9000
+  saved best checkpoint (epoch 25) + backed up
+  epoch=26  train_loss=0.4196  val_loss=0.4826  val_accuracy=0.7700  val_roc_auc=0.8550  lr=0.0006  seconds=11.2000
+  saved best checkpoint (epoch 26) + backed up
+  epoch=27  train_loss=0.4139  val_loss=0.4776  val_accuracy=0.7967  val_roc_auc=0.8557  lr=0.0006  seconds=11.2000
+  saved best checkpoint (epoch 27) + backed up
+  epoch=28  train_loss=0.4125  val_loss=0.5192  val_accuracy=0.7600  val_roc_auc=0.8662  lr=0.0006  seconds=9.3000
+  saved best checkpoint (epoch 28) + backed up
+  epoch=29  train_loss=0.4189  val_loss=0.4872  val_accuracy=0.7733  val_roc_auc=0.8549  lr=0.0005  seconds=10.7000
+  epoch=30  train_loss=0.3784  val_loss=0.5011  val_accuracy=0.7600  val_roc_auc=0.8516  lr=0.0005  seconds=11.1000
+  epoch=31  train_loss=0.3863  val_loss=0.5281  val_accuracy=0.7733  val_roc_auc=0.8522  lr=0.0005  seconds=9.6000
+  epoch=32  train_loss=0.3734  val_loss=0.4898  val_accuracy=0.7967  val_roc_auc=0.8630  lr=0.0005  seconds=10.2000
+  epoch=33  train_loss=0.3540  val_loss=0.4868  val_accuracy=0.7767  val_roc_auc=0.8655  lr=0.0004  seconds=11.0000
+  epoch=34  train_loss=0.3969  val_loss=0.5111  val_accuracy=0.7600  val_roc_auc=0.8502  lr=0.0004  seconds=9.9000
+  epoch=35  train_loss=0.3574  val_loss=0.5837  val_accuracy=0.7667  val_roc_auc=0.8585  lr=0.0004  seconds=10.0000
+  epoch=36  train_loss=0.3602  val_loss=0.4722  val_accuracy=0.7733  val_roc_auc=0.8681  lr=0.0004  seconds=10.8000
+  saved best checkpoint (epoch 36) + backed up
+  epoch=37  train_loss=0.3590  val_loss=0.4779  val_accuracy=0.7900  val_roc_auc=0.8697  lr=0.0003  seconds=10.1000
+  saved best checkpoint (epoch 37) + backed up
+  epoch=38  train_loss=0.3212  val_loss=0.5118  val_accuracy=0.7767  val_roc_auc=0.8618  lr=0.0003  seconds=9.5000
+  epoch=39  train_loss=0.3478  val_loss=0.4792  val_accuracy=0.7800  val_roc_auc=0.8721  lr=0.0003  seconds=11.3000
+  saved best checkpoint (epoch 39) + backed up
+  epoch=40  train_loss=0.3378  val_loss=0.5452  val_accuracy=0.7667  val_roc_auc=0.8642  lr=0.0003  seconds=10.6000
+  epoch=41  train_loss=0.3409  val_loss=0.4816  val_accuracy=0.7733  val_roc_auc=0.8673  lr=0.0002  seconds=9.4000
+  epoch=42  train_loss=0.3382  val_loss=0.4729  val_accuracy=0.7700  val_roc_auc=0.8731  lr=0.0002  seconds=10.8000
+  saved best checkpoint (epoch 42) + backed up
+  epoch=43  train_loss=0.3287  val_loss=0.5133  val_accuracy=0.7700  val_roc_auc=0.8571  lr=0.0002  seconds=10.8000
+  epoch=44  train_loss=0.3285  val_loss=0.4845  val_accuracy=0.7767  val_roc_auc=0.8701  lr=0.0002  seconds=9.5000
+  epoch=45  train_loss=0.3358  val_loss=0.5146  val_accuracy=0.7733  val_roc_auc=0.8639  lr=0.0002  seconds=10.9000
+  epoch=46  train_loss=0.3112  val_loss=0.4743  val_accuracy=0.7800  val_roc_auc=0.8714  lr=0.0001  seconds=11.1000
+  epoch=47  train_loss=0.3018  val_loss=0.5105  val_accuracy=0.7800  val_roc_auc=0.8693  lr=0.0001  seconds=9.3000
+  epoch=48  train_loss=0.3207  val_loss=0.5007  val_accuracy=0.7900  val_roc_auc=0.8657  lr=0.0001  seconds=10.5000
+  epoch=49  train_loss=0.2957  val_loss=0.5007  val_accuracy=0.7700  val_roc_auc=0.8689  lr=0.0001  seconds=10.8000
+  epoch=50  train_loss=0.2886  val_loss=0.4942  val_accuracy=0.7867  val_roc_auc=0.8728  lr=0.0001  seconds=9.1000
+  epoch=51  train_loss=0.3082  val_loss=0.4995  val_accuracy=0.7867  val_roc_auc=0.8765  lr=0.0001  seconds=10.7000
+  saved best checkpoint (epoch 51) + backed up
+  epoch=52  train_loss=0.2848  val_loss=0.4917  val_accuracy=0.7833  val_roc_auc=0.8717  lr=0.0000  seconds=11.0000
+  epoch=53  train_loss=0.2834  val_loss=0.4896  val_accuracy=0.7967  val_roc_auc=0.8758  lr=0.0000  seconds=10.3000
+  epoch=54  train_loss=0.2617  val_loss=0.4896  val_accuracy=0.7867  val_roc_auc=0.8764  lr=0.0000  seconds=10.0000
+  epoch=55  train_loss=0.2667  val_loss=0.4960  val_accuracy=0.8100  val_roc_auc=0.8769  lr=0.0000  seconds=11.2000
+  saved best checkpoint (epoch 55) + backed up
+  epoch=56  train_loss=0.2672  val_loss=0.4940  val_accuracy=0.7933  val_roc_auc=0.8767  lr=0.0000  seconds=10.4000
+  epoch=57  train_loss=0.2662  val_loss=0.4933  val_accuracy=0.8067  val_roc_auc=0.8764  lr=0.0000  seconds=10.2000
+  epoch=58  train_loss=0.2684  val_loss=0.4957  val_accuracy=0.7967  val_roc_auc=0.8764  lr=0.0000  seconds=11.3000
+  epoch=59  train_loss=0.2531  val_loss=0.4933  val_accuracy=0.8000  val_roc_auc=0.8752  lr=0.0000  seconds=11.3000
+  epoch=60  train_loss=0.2717  val_loss=0.4937  val_accuracy=0.8033  val_roc_auc=0.8763  lr=0.0000  seconds=9.0000
+[simple_cnn] TEST acc=0.7667 macroF1=0.7666 AUC=0.8351  (best epoch 55)
+
+[exit 0, 668s]
+
+$ /usr/bin/python3 -m pixeltrace.robustness --run /content/pixeltrace/results/runs/simple_cnn
+      clean     -  acc=0.767  auc=0.835
+       jpeg    90  acc=0.763  auc=0.836
+       jpeg    70  acc=0.763  auc=0.834
+       jpeg    50  acc=0.763  auc=0.830
+       jpeg    30  acc=0.750  auc=0.824
+  downscale  0.75  acc=0.730  auc=0.814
+  downscale   0.5  acc=0.693  auc=0.781
+  downscale  0.25  acc=0.700  auc=0.744
+       blur   0.5  acc=0.747  auc=0.830
+       blur   1.0  acc=0.693  auc=0.798
+       blur   2.0  acc=0.690  auc=0.753
+
+[exit 0, 47s]
+
+$ /usr/bin/python3 -m pixeltrace.gradcam --run /content/pixeltrace/results/runs/simple_cnn
+saved /content/pixeltrace/results/runs/simple_cnn/gradcam.jpg
+
+[exit 0, 10s]
+
+$ /usr/bin/python3 -m pixeltrace.compare --runs /content/pixeltrace/results/runs --out /content/pixeltrace/results --require simple_cnn
+# Results
+
+Test-split metrics (the test split was not used for checkpoint or model selection). Rows sorted by validation ROC-AUC. Deployment model (by validation): **simple_cnn**.
+
+| run | model | params_m | best_epoch | epochs_run | best_val_roc_auc | accuracy | accuracy_95ci | macro_f1 | ai_precision | ai_recall | roc_auc | roc_auc_95ci | roc_auc_jpeg70 | roc_auc_jpeg50 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| simple_cnn | simple_cnn | 3.13 | 55 | 60 | 0.8769 | 0.7667 | 0.720–0.813 | 0.7666 | 0.7778 | 0.7467 | 0.8351 | 0.788–0.881 | 0.8337 | 0.8299 |
+
+deployment model (validation ROC-AUC): simple_cnn
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 scripts/make_reference_images.py --out docs/samples
+wrote ['pattern_alpha.png', 'pattern_exif_rotated.jpg', 'pattern_landscape.jpg', 'pattern_palette.png', 'pattern_portrait_noise.jpg', 'pattern_square.png', 'pattern_tiny.jpg']
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 -m pixeltrace.export_onnx --run /content/pixeltrace/results/runs/simple_cnn --out /content/pixeltrace/results/onnx --reference-images docs/samples
+/content/pixeltrace/src/pixeltrace/export_onnx.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(model, dummy, str(path), dynamo=False, **kwargs)
+{
+  "run": "simple_cnn",
+  "model": "simple_cnn",
+  "onnx": "pixeltrace.onnx",
+  "onnx_bytes": 12501748,
+  "onnx_sha256": "1141e5bdea4416447068b76c2e1f444d9fcd7b53cbcdb395d195ab86fdebcf27",
+  "input": {
+    "name": "pixels",
+    "shape": [
+      null,
+      3,
+      224,
+      224
+    ],
+    "range": "[0,1] RGB"
+  },
+  "output": {
+    "name": "scores",
+    "columns": [
+      "real",
+      "ai"
+    ]
+  },
+  "test_images": 300,
+  "torch_vs_onnx_max_abs_diff": 1.341104507446289e-06,
+  "torch_vs_onnx_mean_abs_diff": 4.8535099494984024e-08,
+  "label_agreement": 1.0,
+  "tolerance": 0.0001,
+  "passed": true
+}
+
+[exit 0, 79s]
+
+$ /usr/bin/python3 -m pixeltrace.verify --runs /content/pixeltrace/results/runs --require simple_cnn --raw-dir data/raw --deployment /content/pixeltrace/results/deployment.json --onnx-report /content/pixeltrace/results/onnx/onnx_parity.json --out /content/pixeltrace/results/verification.json
+== simple_cnn
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=3.02e-07)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.25e-06)
+== deployment / onnx
+  PASS  deployment model 'simple_cnn' is the validation-best run
+  PASS  ONNX parity (max |dp|=1.341104507446289e-06)
+
+VERIFICATION PASSED
+
+[exit 0, 11s]
+
+$ /usr/bin/python3 -m pixeltrace.train --config configs/resnet50.yaml --output-dir /content/pixeltrace/results/runs --backup-dir /content/drive/MyDrive/pixeltrace_backup/full/runs/resnet50
+[resnet50.a1_in1k] device=cuda -> /content/pixeltrace/results/runs/resnet50
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  epoch=1  train_loss=0.6888  val_loss=0.6705  val_accuracy=0.6433  val_roc_auc=0.7398  lr=0.0001  seconds=11.8000
+  saved best checkpoint (epoch 1) + backed up
+  epoch=2  train_loss=0.6435  val_loss=0.6168  val_accuracy=0.7100  val_roc_auc=0.8388  lr=0.0001  seconds=11.9000
+  saved best checkpoint (epoch 2) + backed up
+  epoch=3  train_loss=0.5742  val_loss=0.5461  val_accuracy=0.7433  val_roc_auc=0.8640  lr=0.0001  seconds=12.2000
+  saved best checkpoint (epoch 3) + backed up
+  epoch=4  train_loss=0.4921  val_loss=0.4833  val_accuracy=0.8033  val_roc_auc=0.8843  lr=0.0001  seconds=13.2000
+  saved best checkpoint (epoch 4) + backed up
+  epoch=5  train_loss=0.4188  val_loss=0.4334  val_accuracy=0.8333  val_roc_auc=0.8987  lr=0.0001  seconds=12.7000
+  saved best checkpoint (epoch 5) + backed up
+  epoch=6  train_loss=0.3543  val_loss=0.3977  val_accuracy=0.8467  val_roc_auc=0.9072  lr=0.0001  seconds=12.1000
+  saved best checkpoint (epoch 6) + backed up
+  epoch=7  train_loss=0.2920  val_loss=0.3663  val_accuracy=0.8533  val_roc_auc=0.9208  lr=0.0001  seconds=12.1000
+  saved best checkpoint (epoch 7) + backed up
+  epoch=8  train_loss=0.2476  val_loss=0.3444  val_accuracy=0.8633  val_roc_auc=0.9272  lr=0.0001  seconds=11.4000
+  saved best checkpoint (epoch 8) + backed up
+  epoch=9  train_loss=0.2076  val_loss=0.3393  val_accuracy=0.8733  val_roc_auc=0.9281  lr=0.0001  seconds=10.8000
+  saved best checkpoint (epoch 9) + backed up
+  epoch=10  train_loss=0.1905  val_loss=0.3452  val_accuracy=0.8600  val_roc_auc=0.9275  lr=0.0001  seconds=10.4000
+  epoch=11  train_loss=0.1502  val_loss=0.3454  val_accuracy=0.8600  val_roc_auc=0.9268  lr=0.0001  seconds=13.2000
+  epoch=12  train_loss=0.1384  val_loss=0.3451  val_accuracy=0.8467  val_roc_auc=0.9300  lr=0.0001  seconds=12.0000
+  saved best checkpoint (epoch 12) + backed up
+  epoch=13  train_loss=0.1130  val_loss=0.3352  val_accuracy=0.8600  val_roc_auc=0.9355  lr=0.0001  seconds=12.2000
+  saved best checkpoint (epoch 13) + backed up
+  epoch=14  train_loss=0.0973  val_loss=0.3518  val_accuracy=0.8567  val_roc_auc=0.9321  lr=0.0000  seconds=12.0000
+  epoch=15  train_loss=0.0881  val_loss=0.3511  val_accuracy=0.8600  val_roc_auc=0.9327  lr=0.0000  seconds=13.2000
+  epoch=16  train_loss=0.0789  val_loss=0.3638  val_accuracy=0.8533  val_roc_auc=0.9293  lr=0.0000  seconds=9.5000
+  epoch=17  train_loss=0.0753  val_loss=0.3592  val_accuracy=0.8500  val_roc_auc=0.9327  lr=0.0000  seconds=11.6000
+  epoch=18  train_loss=0.0672  val_loss=0.3583  val_accuracy=0.8533  val_roc_auc=0.9329  lr=0.0000  seconds=11.6000
+  epoch=19  train_loss=0.0704  val_loss=0.3569  val_accuracy=0.8600  val_roc_auc=0.9348  lr=0.0000  seconds=10.4000
+  epoch=20  train_loss=0.0591  val_loss=0.3698  val_accuracy=0.8567  val_roc_auc=0.9329  lr=0.0000  seconds=10.4000
+  early stop: no val improvement for 7 epochs
+[resnet50] TEST acc=0.8067 macroF1=0.8067 AUC=0.8975  (best epoch 13)
+
+[exit 0, 274s]
+
+$ /usr/bin/python3 -m pixeltrace.robustness --run /content/pixeltrace/results/runs/resnet50
+      clean     -  acc=0.807  auc=0.897
+       jpeg    90  acc=0.783  auc=0.897
+       jpeg    70  acc=0.790  auc=0.893
+       jpeg    50  acc=0.770  auc=0.891
+       jpeg    30  acc=0.780  auc=0.881
+  downscale  0.75  acc=0.790  auc=0.891
+  downscale   0.5  acc=0.753  auc=0.878
+  downscale  0.25  acc=0.677  auc=0.845
+       blur   0.5  acc=0.780  auc=0.895
+       blur   1.0  acc=0.777  auc=0.886
+       blur   2.0  acc=0.693  auc=0.853
+
+[exit 0, 49s]
+
+$ /usr/bin/python3 -m pixeltrace.gradcam --run /content/pixeltrace/results/runs/resnet50
+saved /content/pixeltrace/results/runs/resnet50/gradcam.jpg
+
+[exit 0, 10s]
+
+$ /usr/bin/python3 -m pixeltrace.compare --runs /content/pixeltrace/results/runs --out /content/pixeltrace/results --require resnet50
+# Results
+
+Test-split metrics (the test split was not used for checkpoint or model selection). Rows sorted by validation ROC-AUC. Deployment model (by validation): **resnet50**.
+
+| run | model | params_m | best_epoch | epochs_run | best_val_roc_auc | accuracy | accuracy_95ci | macro_f1 | ai_precision | ai_recall | roc_auc | roc_auc_95ci | roc_auc_jpeg70 | roc_auc_jpeg50 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| resnet50 | resnet50.a1_in1k | 23.51 | 13 | 20 | 0.9355 | 0.8067 | 0.763–0.850 | 0.8067 | 0.8067 | 0.8067 | 0.8975 | 0.859–0.931 | 0.8932 | 0.8908 |
+| simple_cnn | simple_cnn | 3.13 | 55 | 60 | 0.8769 | 0.7667 | 0.720–0.813 | 0.7666 | 0.7778 | 0.7467 | 0.8351 | 0.788–0.881 | 0.8337 | 0.8299 |
+
+deployment model (validation ROC-AUC): resnet50
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 scripts/make_reference_images.py --out docs/samples
+wrote ['pattern_alpha.png', 'pattern_exif_rotated.jpg', 'pattern_landscape.jpg', 'pattern_palette.png', 'pattern_portrait_noise.jpg', 'pattern_square.png', 'pattern_tiny.jpg']
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 -m pixeltrace.export_onnx --run /content/pixeltrace/results/runs/resnet50 --out /content/pixeltrace/results/onnx --reference-images docs/samples
+/content/pixeltrace/src/pixeltrace/export_onnx.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(model, dummy, str(path), dynamo=False, **kwargs)
+{
+  "run": "resnet50",
+  "model": "resnet50.a1_in1k",
+  "onnx": "pixeltrace.onnx",
+  "onnx_bytes": 93969186,
+  "onnx_sha256": "ba5a059aca300f0a9c8e74ed705b27078e6dc44ba8f411216209f924167211ba",
+  "input": {
+    "name": "pixels",
+    "shape": [
+      null,
+      3,
+      224,
+      224
+    ],
+    "range": "[0,1] RGB"
+  },
+  "output": {
+    "name": "scores",
+    "columns": [
+      "real",
+      "ai"
+    ]
+  },
+  "test_images": 300,
+  "torch_vs_onnx_max_abs_diff": 5.5730342864990234e-06,
+  "torch_vs_onnx_mean_abs_diff": 5.4066146049081e-07,
+  "label_agreement": 1.0,
+  "tolerance": 0.0001,
+  "passed": true
+}
+
+[exit 0, 93s]
+
+$ /usr/bin/python3 -m pixeltrace.verify --runs /content/pixeltrace/results/runs --require resnet50 --raw-dir data/raw --deployment /content/pixeltrace/results/deployment.json --onnx-report /content/pixeltrace/results/onnx/onnx_parity.json --out /content/pixeltrace/results/verification.json
+== resnet50
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=4.29e-06)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.03e-06)
+== deployment / onnx
+  PASS  deployment model 'resnet50' is the validation-best run
+  PASS  ONNX parity (max |dp|=5.5730342864990234e-06)
+
+VERIFICATION PASSED
+
+[exit 0, 13s]
+
+$ /usr/bin/python3 -m pixeltrace.train --config configs/efficientnet_b0.yaml --output-dir /content/pixeltrace/results/runs --backup-dir /content/drive/MyDrive/pixeltrace_backup/full/runs/efficientnet_b0
+[efficientnet_b0.ra_in1k] device=cuda -> /content/pixeltrace/results/runs/efficientnet_b0
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/content/pixeltrace/src/pixeltrace/train.py:83: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  sched.step()
+  epoch=1  train_loss=1.9509  val_loss=1.0168  val_accuracy=0.7767  val_roc_auc=0.8621  lr=0.0003  seconds=16.9000
+  saved best checkpoint (epoch 1) + backed up
+  epoch=2  train_loss=0.7673  val_loss=0.7714  val_accuracy=0.8300  val_roc_auc=0.9116  lr=0.0003  seconds=11.7000
+  saved best checkpoint (epoch 2) + backed up
+  epoch=3  train_loss=0.3949  val_loss=0.8984  val_accuracy=0.8267  val_roc_auc=0.9183  lr=0.0003  seconds=11.3000
+  saved best checkpoint (epoch 3) + backed up
+  epoch=4  train_loss=0.2138  val_loss=0.8338  val_accuracy=0.8400  val_roc_auc=0.9268  lr=0.0003  seconds=9.2000
+  saved best checkpoint (epoch 4) + backed up
+  epoch=5  train_loss=0.2016  val_loss=0.8572  val_accuracy=0.8433  val_roc_auc=0.9263  lr=0.0003  seconds=11.6000
+  epoch=6  train_loss=0.1145  val_loss=0.8662  val_accuracy=0.8433  val_roc_auc=0.9264  lr=0.0003  seconds=11.3000
+  epoch=7  train_loss=0.1219  val_loss=0.6274  val_accuracy=0.8600  val_roc_auc=0.9412  lr=0.0003  seconds=10.2000
+  saved best checkpoint (epoch 7) + backed up
+  epoch=8  train_loss=0.0601  val_loss=0.8174  val_accuracy=0.8700  val_roc_auc=0.9320  lr=0.0002  seconds=10.3000
+  epoch=9  train_loss=0.0997  val_loss=0.7827  val_accuracy=0.8600  val_roc_auc=0.9377  lr=0.0002  seconds=11.8000
+  epoch=10  train_loss=0.0577  val_loss=0.7430  val_accuracy=0.8733  val_roc_auc=0.9385  lr=0.0002  seconds=11.4000
+  epoch=11  train_loss=0.0372  val_loss=0.8272  val_accuracy=0.8633  val_roc_auc=0.9347  lr=0.0002  seconds=9.4000
+  epoch=12  train_loss=0.0467  val_loss=0.7428  val_accuracy=0.8700  val_roc_auc=0.9413  lr=0.0002  seconds=11.3000
+  saved best checkpoint (epoch 12) + backed up
+  epoch=13  train_loss=0.0458  val_loss=0.6897  val_accuracy=0.8800  val_roc_auc=0.9438  lr=0.0001  seconds=11.4000
+  saved best checkpoint (epoch 13) + backed up
+  epoch=14  train_loss=0.0398  val_loss=0.7629  val_accuracy=0.8633  val_roc_auc=0.9402  lr=0.0001  seconds=10.5000
+  epoch=15  train_loss=0.0269  val_loss=0.6625  val_accuracy=0.8767  val_roc_auc=0.9448  lr=0.0001  seconds=10.4000
+  saved best checkpoint (epoch 15) + backed up
+  epoch=16  train_loss=0.0359  val_loss=0.5953  val_accuracy=0.8733  val_roc_auc=0.9520  lr=0.0001  seconds=11.5000
+  saved best checkpoint (epoch 16) + backed up
+  epoch=17  train_loss=0.0325  val_loss=0.6082  val_accuracy=0.8500  val_roc_auc=0.9516  lr=0.0001  seconds=11.4000
+  epoch=18  train_loss=0.0222  val_loss=0.5825  val_accuracy=0.8633  val_roc_auc=0.9514  lr=0.0001  seconds=9.8000
+  epoch=19  train_loss=0.0134  val_loss=0.5977  val_accuracy=0.8800  val_roc_auc=0.9508  lr=0.0000  seconds=10.9000
+  epoch=20  train_loss=0.0165  val_loss=0.5843  val_accuracy=0.8700  val_roc_auc=0.9517  lr=0.0000  seconds=11.3000
+  epoch=21  train_loss=0.0157  val_loss=0.6226  val_accuracy=0.8633  val_roc_auc=0.9490  lr=0.0000  seconds=10.2000
+  epoch=22  train_loss=0.0184  val_loss=0.6018  val_accuracy=0.8567  val_roc_auc=0.9505  lr=0.0000  seconds=9.9000
+  epoch=23  train_loss=0.0093  val_loss=0.5884  val_accuracy=0.8733  val_roc_auc=0.9524  lr=0.0000  seconds=11.3000
+  saved best checkpoint (epoch 23) + backed up
+  epoch=24  train_loss=0.0276  val_loss=0.6304  val_accuracy=0.8667  val_roc_auc=0.9507  lr=0.0000  seconds=11.1000
+  epoch=25  train_loss=0.0132  val_loss=0.6022  val_accuracy=0.8567  val_roc_auc=0.9505  lr=0.0000  seconds=9.5000
+[efficientnet_b0] TEST acc=0.8433 macroF1=0.8433 AUC=0.9038  (best epoch 23)
+
+[exit 0, 296s]
+
+$ /usr/bin/python3 -m pixeltrace.robustness --run /content/pixeltrace/results/runs/efficientnet_b0
+      clean     -  acc=0.843  auc=0.904
+       jpeg    90  acc=0.837  auc=0.902
+       jpeg    70  acc=0.833  auc=0.893
+       jpeg    50  acc=0.820  auc=0.886
+       jpeg    30  acc=0.783  auc=0.869
+  downscale  0.75  acc=0.837  auc=0.896
+  downscale   0.5  acc=0.797  auc=0.884
+  downscale  0.25  acc=0.753  auc=0.841
+       blur   0.5  acc=0.840  auc=0.901
+       blur   1.0  acc=0.817  auc=0.892
+       blur   2.0  acc=0.777  auc=0.851
+
+[exit 0, 46s]
+
+$ /usr/bin/python3 -m pixeltrace.gradcam --run /content/pixeltrace/results/runs/efficientnet_b0
+saved /content/pixeltrace/results/runs/efficientnet_b0/gradcam.jpg
+
+[exit 0, 10s]
+
+$ /usr/bin/python3 -m pixeltrace.compare --runs /content/pixeltrace/results/runs --out /content/pixeltrace/results --require efficientnet_b0
+# Results
+
+Test-split metrics (the test split was not used for checkpoint or model selection). Rows sorted by validation ROC-AUC. Deployment model (by validation): **efficientnet_b0**.
+
+| run | model | params_m | best_epoch | epochs_run | best_val_roc_auc | accuracy | accuracy_95ci | macro_f1 | ai_precision | ai_recall | roc_auc | roc_auc_95ci | roc_auc_jpeg70 | roc_auc_jpeg50 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| efficientnet_b0 | efficientnet_b0.ra_in1k | 4.01 | 23 | 25 | 0.9524 | 0.8433 | 0.803–0.887 | 0.8433 | 0.8552 | 0.8267 | 0.9038 | 0.866–0.940 | 0.8931 | 0.8864 |
+| resnet50 | resnet50.a1_in1k | 23.51 | 13 | 20 | 0.9355 | 0.8067 | 0.763–0.850 | 0.8067 | 0.8067 | 0.8067 | 0.8975 | 0.859–0.931 | 0.8932 | 0.8908 |
+| simple_cnn | simple_cnn | 3.13 | 55 | 60 | 0.8769 | 0.7667 | 0.720–0.813 | 0.7666 | 0.7778 | 0.7467 | 0.8351 | 0.788–0.881 | 0.8337 | 0.8299 |
+
+deployment model (validation ROC-AUC): efficientnet_b0
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 scripts/make_reference_images.py --out docs/samples
+wrote ['pattern_alpha.png', 'pattern_exif_rotated.jpg', 'pattern_landscape.jpg', 'pattern_palette.png', 'pattern_portrait_noise.jpg', 'pattern_square.png', 'pattern_tiny.jpg']
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 -m pixeltrace.export_onnx --run /content/pixeltrace/results/runs/efficientnet_b0 --out /content/pixeltrace/results/onnx --reference-images docs/samples
+/content/pixeltrace/src/pixeltrace/export_onnx.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(model, dummy, str(path), dynamo=False, **kwargs)
+{
+  "run": "efficientnet_b0",
+  "model": "efficientnet_b0.ra_in1k",
+  "onnx": "pixeltrace.onnx",
+  "onnx_bytes": 16020904,
+  "onnx_sha256": "710f9b7194c9bd61e12601e24cb6769fc9d369ab21d461e57ed017336d9e8b42",
+  "input": {
+    "name": "pixels",
+    "shape": [
+      null,
+      3,
+      224,
+      224
+    ],
+    "range": "[0,1] RGB"
+  },
+  "output": {
+    "name": "scores",
+    "columns": [
+      "real",
+      "ai"
+    ]
+  },
+  "test_images": 300,
+  "torch_vs_onnx_max_abs_diff": 5.4836273193359375e-06,
+  "torch_vs_onnx_mean_abs_diff": 2.682623119198979e-07,
+  "label_agreement": 1.0,
+  "tolerance": 0.0001,
+  "passed": true
+}
+
+[exit 0, 35s]
+
+$ /usr/bin/python3 -m pixeltrace.verify --runs /content/pixeltrace/results/runs --require efficientnet_b0 --raw-dir data/raw --deployment /content/pixeltrace/results/deployment.json --onnx-report /content/pixeltrace/results/onnx/onnx_parity.json --out /content/pixeltrace/results/verification.json
+== efficientnet_b0
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=3.85e-06)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.78e-06)
+== deployment / onnx
+  PASS  deployment model 'efficientnet_b0' is the validation-best run
+  PASS  ONNX parity (max |dp|=5.4836273193359375e-06)
+
+VERIFICATION PASSED
+
+[exit 0, 12s]
+
+$ /usr/bin/python3 -m pixeltrace.compare --runs /content/pixeltrace/results/runs --out /content/pixeltrace/results --require simple_cnn resnet50 efficientnet_b0
+# Results
+
+Test-split metrics (the test split was not used for checkpoint or model selection). Rows sorted by validation ROC-AUC. Deployment model (by validation): **efficientnet_b0**.
+
+| run | model | params_m | best_epoch | epochs_run | best_val_roc_auc | accuracy | accuracy_95ci | macro_f1 | ai_precision | ai_recall | roc_auc | roc_auc_95ci | roc_auc_jpeg70 | roc_auc_jpeg50 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| efficientnet_b0 | efficientnet_b0.ra_in1k | 4.01 | 23 | 25 | 0.9524 | 0.8433 | 0.803–0.887 | 0.8433 | 0.8552 | 0.8267 | 0.9038 | 0.866–0.940 | 0.8931 | 0.8864 |
+| resnet50 | resnet50.a1_in1k | 23.51 | 13 | 20 | 0.9355 | 0.8067 | 0.763–0.850 | 0.8067 | 0.8067 | 0.8067 | 0.8975 | 0.859–0.931 | 0.8932 | 0.8908 |
+| simple_cnn | simple_cnn | 3.13 | 55 | 60 | 0.8769 | 0.7667 | 0.720–0.813 | 0.7666 | 0.7778 | 0.7467 | 0.8351 | 0.788–0.881 | 0.8337 | 0.8299 |
+
+deployment model (validation ROC-AUC): efficientnet_b0
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 scripts/make_reference_images.py --out docs/samples
+wrote ['pattern_alpha.png', 'pattern_exif_rotated.jpg', 'pattern_landscape.jpg', 'pattern_palette.png', 'pattern_portrait_noise.jpg', 'pattern_square.png', 'pattern_tiny.jpg']
+
+[exit 0, 1s]
+
+$ /usr/bin/python3 -m pixeltrace.export_onnx --run /content/pixeltrace/results/runs/efficientnet_b0 --out /content/pixeltrace/results/onnx --reference-images docs/samples
+/content/pixeltrace/src/pixeltrace/export_onnx.py:52: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(model, dummy, str(path), dynamo=False, **kwargs)
+{
+  "run": "efficientnet_b0",
+  "model": "efficientnet_b0.ra_in1k",
+  "onnx": "pixeltrace.onnx",
+  "onnx_bytes": 16020904,
+  "onnx_sha256": "710f9b7194c9bd61e12601e24cb6769fc9d369ab21d461e57ed017336d9e8b42",
+  "input": {
+    "name": "pixels",
+    "shape": [
+      null,
+      3,
+      224,
+      224
+    ],
+    "range": "[0,1] RGB"
+  },
+  "output": {
+    "name": "scores",
+    "columns": [
+      "real",
+      "ai"
+    ]
+  },
+  "test_images": 300,
+  "torch_vs_onnx_max_abs_diff": 5.4836273193359375e-06,
+  "torch_vs_onnx_mean_abs_diff": 2.682623119198979e-07,
+  "label_agreement": 1.0,
+  "tolerance": 0.0001,
+  "passed": true
+}
+
+[exit 0, 38s]
+
+$ /usr/bin/python3 -m pixeltrace.verify --runs /content/pixeltrace/results/runs --require simple_cnn resnet50 efficientnet_b0 --raw-dir data/raw --deployment /content/pixeltrace/results/deployment.json --onnx-report /content/pixeltrace/results/onnx/onnx_parity.json --out /content/pixeltrace/results/verification.json
+== simple_cnn
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=3.02e-07)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.25e-06)
+== resnet50
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=4.29e-06)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.03e-06)
+== efficientnet_b0
+  PASS  artifacts present 
+  PASS  full run (not a smoke run)
+  PASS  reload reproduces saved test predictions (max |dp|=3.85e-06)
+  PASS  metrics.json consistent with test_predictions.csv
+  PASS  bootstrap CIs present
+  PASS  test size 300 matches predictions
+  PASS  raw-file inference matches processed copy on 20 images (max |dp|=1.78e-06)
+== deployment / onnx
+  PASS  deployment model 'efficientnet_b0' is the validation-best run
+  PASS  ONNX parity (max |dp|=5.4836273193359375e-06)
+
+VERIFICATION PASSED
+
+[exit 0, 19s]
+

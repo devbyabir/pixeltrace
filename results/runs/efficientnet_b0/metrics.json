@@ -1,0 +1,34 @@
+{
+  "n": 300,
+  "accuracy": 0.8433,
+  "balanced_accuracy": 0.8433,
+  "macro_f1": 0.8433,
+  "ai_precision": 0.8552,
+  "ai_recall": 0.8267,
+  "ai_f1": 0.8407,
+  "real_recall": 0.86,
+  "confusion_matrix": {
+    "tn": 129,
+    "fp": 21,
+    "fn": 26,
+    "tp": 124
+  },
+  "threshold": 0.5,
+  "roc_auc": 0.9038,
+  "average_precision": 0.893,
+  "accuracy_95ci": [
+    0.8033,
+    0.8867
+  ],
+  "roc_auc_95ci": [
+    0.8662,
+    0.9398
+  ],
+  "model": "efficientnet_b0.ra_in1k",
+  "run": "efficientnet_b0",
+  "best_epoch": 23,
+  "epochs_run": 25,
+  "smoke": false,
+  "best_val_roc_auc": 0.9524,
+  "params_m": 4.01
+}

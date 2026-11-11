@@ -1,0 +1,7 @@
+model: mobilenetv3_large_100.ra_in1k
+run_name: mobilenetv3
+lr: 3.0e-4
+weight_decay: 0.05
+epochs: 25
+patience: 7
+batch_size: 32

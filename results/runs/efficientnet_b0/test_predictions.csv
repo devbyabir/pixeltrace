@@ -1,0 +1,301 @@
+id,path,label,class,split,source_file,orig_width,orig_height,orig_format,p_ai,pred,correct,confidence_wrong
+ai_00006,images/ai_00006.jpg,1,ai,test,AI Generated/0208.jpg,600,625,JPEG,0.9999546,1,True,0.0
+ai_00029,images/ai_00029.jpg,1,ai,test,AI Generated/0748.jpg,512,512,JPEG,0.9999362,1,True,0.0
+ai_00035,images/ai_00035.jpg,1,ai,test,AI Generated/0989.jpg,1024,1024,JPEG,0.99988425,1,True,0.0
+ai_00042,images/ai_00042.jpg,1,ai,test,AI Generated/10075.jpg,1024,1024,JPEG,0.99890304,1,True,0.0
+ai_00071,images/ai_00071.jpg,1,ai,test,AI Generated/10849.jpg,1024,1024,JPEG,0.9979499,1,True,0.0
+ai_00072,images/ai_00072.jpg,1,ai,test,AI Generated/10880.jpg,1456,816,JPEG,0.08223059,0,False,0.8355388
+ai_00073,images/ai_00073.jpg,1,ai,test,AI Generated/10924.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00078,images/ai_00078.jpg,1,ai,test,AI Generated/11106.jpg,2048,2048,JPEG,0.05599747,0,False,0.8880051
+ai_00087,images/ai_00087.jpg,1,ai,test,AI Generated/113293.jpg,704,704,PNG,0.958894,1,True,0.0
+ai_00094,images/ai_00094.jpg,1,ai,test,AI Generated/11452.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00099,images/ai_00099.jpg,1,ai,test,AI Generated/11522.jpg,1456,816,JPEG,0.26048625,0,False,0.4790275
+ai_00115,images/ai_00115.jpg,1,ai,test,AI Generated/11729.jpg,2048,2048,JPEG,0.99999535,1,True,0.0
+ai_00120,images/ai_00120.jpg,1,ai,test,AI Generated/11774.jpg,1024,1024,JPEG,0.9999968,1,True,0.0
+ai_00126,images/ai_00126.jpg,1,ai,test,AI Generated/11868.jpg,1024,1024,JPEG,0.9999629,1,True,0.0
+ai_00128,images/ai_00128.jpg,1,ai,test,AI Generated/11895.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00132,images/ai_00132.jpg,1,ai,test,AI Generated/11926.jpg,2048,2048,JPEG,1.0,1,True,0.0
+ai_00139,images/ai_00139.jpg,1,ai,test,AI Generated/12132.jpg,3072,2048,JPEG,0.99999976,1,True,0.0
+ai_00147,images/ai_00147.jpg,1,ai,test,AI Generated/12303.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00151,images/ai_00151.jpg,1,ai,test,AI Generated/12334.jpg,816,1456,JPEG,1.0,1,True,0.0
+ai_00156,images/ai_00156.jpg,1,ai,test,AI Generated/12414.jpg,1344,896,JPEG,0.30744144,0,False,0.3851171
+ai_00159,images/ai_00159.jpg,1,ai,test,AI Generated/124420.jpg,816,1456,JPEG,0.99965215,1,True,0.0
+ai_00176,images/ai_00176.jpg,1,ai,test,AI Generated/12739.jpg,2048,2048,JPEG,0.50478417,1,True,0.0
+ai_00177,images/ai_00177.jpg,1,ai,test,AI Generated/12759.jpg,1024,1024,JPEG,0.9961139,1,True,0.0
+ai_00178,images/ai_00178.jpg,1,ai,test,AI Generated/12768.jpg,1024,1024,JPEG,0.99990845,1,True,0.0
+ai_00183,images/ai_00183.jpg,1,ai,test,AI Generated/12882.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00191,images/ai_00191.jpg,1,ai,test,AI Generated/1304.jpg,1024,1024,JPEG,0.9995309,1,True,0.0
+ai_00205,images/ai_00205.jpg,1,ai,test,AI Generated/13288.jpg,1024,1024,JPEG,0.9999881,1,True,0.0
+ai_00206,images/ai_00206.jpg,1,ai,test,AI Generated/13314.jpg,1024,1024,JPEG,0.99999964,1,True,0.0
+ai_00210,images/ai_00210.jpg,1,ai,test,AI Generated/13374.jpg,928,1232,JPEG,0.00511734,0,False,0.98976535
+ai_00218,images/ai_00218.jpg,1,ai,test,AI Generated/135010.jpg,1024,1024,PNG,0.13922979,0,False,0.72154045
+ai_00229,images/ai_00229.jpg,1,ai,test,AI Generated/137668.jpg,848,1424,JPEG,0.9999567,1,True,0.0
+ai_00243,images/ai_00243.jpg,1,ai,test,AI Generated/13999.jpg,1024,1024,JPEG,7.067007e-06,0,False,0.9999859
+ai_00245,images/ai_00245.jpg,1,ai,test,AI Generated/14021.jpg,2048,2048,JPEG,0.9998851,1,True,0.0
+ai_00251,images/ai_00251.jpg,1,ai,test,AI Generated/14104.jpg,1024,1024,JPEG,0.9989655,1,True,0.0
+ai_00253,images/ai_00253.jpg,1,ai,test,AI Generated/141131.jpg,1536,1536,PNG,0.99994373,1,True,0.0
+ai_00256,images/ai_00256.jpg,1,ai,test,AI Generated/14141.jpg,2048,2048,JPEG,0.99996376,1,True,0.0
+ai_00259,images/ai_00259.jpg,1,ai,test,AI Generated/14159.jpg,1456,816,JPEG,1.0,1,True,0.0
+ai_00264,images/ai_00264.jpg,1,ai,test,AI Generated/142701.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00267,images/ai_00267.jpg,1,ai,test,AI Generated/14395.jpg,1504,800,JPEG,0.023714034,0,False,0.9525719
+ai_00268,images/ai_00268.jpg,1,ai,test,AI Generated/14397.jpg,1024,1024,JPEG,0.041145682,0,False,0.91770864
+ai_00271,images/ai_00271.jpg,1,ai,test,AI Generated/14510.jpg,1024,1024,JPEG,0.9827549,1,True,0.0
+ai_00281,images/ai_00281.jpg,1,ai,test,AI Generated/14649.jpg,832,1456,JPEG,1.0,1,True,0.0
+ai_00287,images/ai_00287.jpg,1,ai,test,AI Generated/147812.jpg,1456,816,PNG,1.0,1,True,0.0
+ai_00295,images/ai_00295.jpg,1,ai,test,AI Generated/15082.jpg,1024,1024,JPEG,0.9999999,1,True,0.0
+ai_00296,images/ai_00296.jpg,1,ai,test,AI Generated/15103.jpg,2048,2048,JPEG,0.79693025,1,True,0.0
+ai_00308,images/ai_00308.jpg,1,ai,test,AI Generated/15360.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00311,images/ai_00311.jpg,1,ai,test,AI Generated/153841.jpg,555,555,PNG,1.0,1,True,0.0
+ai_00323,images/ai_00323.jpg,1,ai,test,AI Generated/15653.jpg,1024,1024,JPEG,0.9965037,1,True,0.0
+ai_00329,images/ai_00329.jpg,1,ai,test,AI Generated/15757.jpg,2912,1632,JPEG,0.6963319,1,True,0.0
+ai_00331,images/ai_00331.jpg,1,ai,test,AI Generated/15783.jpg,1024,1024,JPEG,0.9694884,1,True,0.0
+ai_00348,images/ai_00348.jpg,1,ai,test,AI Generated/160869.jpg,1024,1024,PNG,0.9944771,1,True,0.0
+ai_00351,images/ai_00351.jpg,1,ai,test,AI Generated/16197.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00362,images/ai_00362.jpg,1,ai,test,AI Generated/168756.jpg,555,555,PNG,0.99999917,1,True,0.0
+ai_00364,images/ai_00364.jpg,1,ai,test,AI Generated/169822.jpg,1024,1024,PNG,0.99999845,1,True,0.0
+ai_00366,images/ai_00366.jpg,1,ai,test,AI Generated/171354.jpg,960,1200,PNG,1.0,1,True,0.0
+ai_00368,images/ai_00368.jpg,1,ai,test,AI Generated/172824.jpg,816,1024,PNG,1.0,1,True,0.0
+ai_00369,images/ai_00369.jpg,1,ai,test,AI Generated/173954.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00375,images/ai_00375.jpg,1,ai,test,AI Generated/179635.jpg,1344,896,PNG,0.99999964,1,True,0.0
+ai_00382,images/ai_00382.jpg,1,ai,test,AI Generated/183431.jpg,1024,1024,JPEG,0.9999999,1,True,0.0
+ai_00388,images/ai_00388.jpg,1,ai,test,AI Generated/18626.jpg,512,512,JPEG,1.0,1,True,0.0
+ai_00396,images/ai_00396.jpg,1,ai,test,AI Generated/193890.jpg,2048,2048,JPEG,0.9999831,1,True,0.0
+ai_00403,images/ai_00403.jpg,1,ai,test,AI Generated/197855.jpg,1024,1024,JPEG,0.9999981,1,True,0.0
+ai_00405,images/ai_00405.jpg,1,ai,test,AI Generated/198989.jpg,768,1536,JPEG,0.99977666,1,True,0.0
+ai_00422,images/ai_00422.jpg,1,ai,test,AI Generated/21144.jpg,1344,896,JPEG,0.87253296,1,True,0.0
+ai_00426,images/ai_00426.jpg,1,ai,test,AI Generated/215925.jpg,1024,1024,PNG,0.99997115,1,True,0.0
+ai_00443,images/ai_00443.jpg,1,ai,test,AI Generated/225927.jpg,555,555,PNG,1.0,1,True,0.0
+ai_00451,images/ai_00451.jpg,1,ai,test,AI Generated/234933.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00461,images/ai_00461.jpg,1,ai,test,AI Generated/239742.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00466,images/ai_00466.jpg,1,ai,test,AI Generated/247234.jpg,1434,1792,PNG,1.0,1,True,0.0
+ai_00477,images/ai_00477.jpg,1,ai,test,AI Generated/262081.jpg,512,720,PNG,1.0,1,True,0.0
+ai_00478,images/ai_00478.jpg,1,ai,test,AI Generated/262398.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00479,images/ai_00479.jpg,1,ai,test,AI Generated/262466.jpg,928,1232,PNG,0.9999628,1,True,0.0
+ai_00482,images/ai_00482.jpg,1,ai,test,AI Generated/264328.jpg,1344,896,PNG,1.0,1,True,0.0
+ai_00495,images/ai_00495.jpg,1,ai,test,AI Generated/271176.jpg,1024,1024,JPEG,0.9997596,1,True,0.0
+ai_00498,images/ai_00498.jpg,1,ai,test,AI Generated/273147.jpg,2912,1632,JPEG,0.99999964,1,True,0.0
+ai_00503,images/ai_00503.jpg,1,ai,test,AI Generated/279655.jpg,1024,1024,PNG,0.9999999,1,True,0.0
+ai_00508,images/ai_00508.jpg,1,ai,test,AI Generated/287161.jpg,1024,1024,PNG,1.7214094e-06,0,False,0.99999654
+ai_00511,images/ai_00511.jpg,1,ai,test,AI Generated/291170.jpg,1312,928,PNG,1.0,1,True,0.0
+ai_00513,images/ai_00513.jpg,1,ai,test,AI Generated/294041.jpg,1024,1024,PNG,0.85548526,1,True,0.0
+ai_00514,images/ai_00514.jpg,1,ai,test,AI Generated/294480.jpg,1792,2688,JPEG,0.06596016,0,False,0.86807966
+ai_00525,images/ai_00525.jpg,1,ai,test,AI Generated/304623.jpg,555,555,PNG,0.99980575,1,True,0.0
+ai_00529,images/ai_00529.jpg,1,ai,test,AI Generated/311721.jpg,1024,1024,PNG,1.04862074e-19,0,False,1.0
+ai_00536,images/ai_00536.jpg,1,ai,test,AI Generated/318413.jpg,1024,1024,PNG,0.049926754,0,False,0.9001465
+ai_00539,images/ai_00539.jpg,1,ai,test,AI Generated/3209.jpg,1080,605,JPEG,0.03970203,0,False,0.92059594
+ai_00540,images/ai_00540.jpg,1,ai,test,AI Generated/323610.jpg,1024,1536,PNG,1.0,1,True,0.0
+ai_00550,images/ai_00550.jpg,1,ai,test,AI Generated/330441.jpg,2912,1632,JPEG,1.0,1,True,0.0
+ai_00574,images/ai_00574.jpg,1,ai,test,AI Generated/347571.jpg,1024,1024,PNG,2.4446266e-11,0,False,1.0
+ai_00576,images/ai_00576.jpg,1,ai,test,AI Generated/348372.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00583,images/ai_00583.jpg,1,ai,test,AI Generated/3532.jpg,1024,1024,JPEG,0.9999995,1,True,0.0
+ai_00600,images/ai_00600.jpg,1,ai,test,AI Generated/3654.jpg,912,1296,JPEG,0.0012369062,0,False,0.99752617
+ai_00601,images/ai_00601.jpg,1,ai,test,AI Generated/365496.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00611,images/ai_00611.jpg,1,ai,test,AI Generated/375680.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00625,images/ai_00625.jpg,1,ai,test,AI Generated/391437.jpg,922,922,PNG,1.0,1,True,0.0
+ai_00626,images/ai_00626.jpg,1,ai,test,AI Generated/3919.jpg,1024,1024,JPEG,0.98572886,1,True,0.0
+ai_00633,images/ai_00633.jpg,1,ai,test,AI Generated/396394.jpg,1024,1024,JPEG,0.99999964,1,True,0.0
+ai_00648,images/ai_00648.jpg,1,ai,test,AI Generated/4081.jpg,1232,928,JPEG,1.0,1,True,0.0
+ai_00653,images/ai_00653.jpg,1,ai,test,AI Generated/4166.jpg,864,1376,JPEG,1.0,1,True,0.0
+ai_00661,images/ai_00661.jpg,1,ai,test,AI Generated/422580.jpg,1024,1024,PNG,0.9999975,1,True,0.0
+ai_00673,images/ai_00673.jpg,1,ai,test,AI Generated/432165.jpg,1456,816,JPEG,1.0,1,True,0.0
+ai_00682,images/ai_00682.jpg,1,ai,test,AI Generated/4398.jpg,1536,1024,JPEG,1.0,1,True,0.0
+ai_00704,images/ai_00704.jpg,1,ai,test,AI Generated/459436.jpg,1024,1024,JPEG,0.9995441,1,True,0.0
+ai_00715,images/ai_00715.jpg,1,ai,test,AI Generated/4706.jpg,2048,2048,JPEG,0.9997631,1,True,0.0
+ai_00723,images/ai_00723.jpg,1,ai,test,AI Generated/4757.jpg,1024,1024,JPEG,0.9687704,1,True,0.0
+ai_00736,images/ai_00736.jpg,1,ai,test,AI Generated/491029.jpg,1456,816,PNG,0.99999917,1,True,0.0
+ai_00740,images/ai_00740.jpg,1,ai,test,AI Generated/4955.jpg,1024,1024,JPEG,0.9993118,1,True,0.0
+ai_00757,images/ai_00757.jpg,1,ai,test,AI Generated/512668.jpg,2048,2048,JPEG,1.0,1,True,0.0
+ai_00762,images/ai_00762.jpg,1,ai,test,AI Generated/514668.jpg,896,1344,JPEG,0.99928916,1,True,0.0
+ai_00763,images/ai_00763.jpg,1,ai,test,AI Generated/5147.jpg,1024,1024,JPEG,0.99959296,1,True,0.0
+ai_00764,images/ai_00764.jpg,1,ai,test,AI Generated/5158.jpg,1024,1024,JPEG,0.99999976,1,True,0.0
+ai_00774,images/ai_00774.jpg,1,ai,test,AI Generated/526269.jpg,751,751,JPEG,0.052789457,0,False,0.8944211
+ai_00775,images/ai_00775.jpg,1,ai,test,AI Generated/5266.jpg,1024,1024,JPEG,0.11208175,0,False,0.77583647
+ai_00778,images/ai_00778.jpg,1,ai,test,AI Generated/527529.jpg,1024,1024,JPEG,0.99900347,1,True,0.0
+ai_00782,images/ai_00782.jpg,1,ai,test,AI Generated/533500.jpg,2048,2048,PNG,1.0,1,True,0.0
+ai_00786,images/ai_00786.jpg,1,ai,test,AI Generated/537530.jpg,555,555,PNG,0.9928784,1,True,0.0
+ai_00789,images/ai_00789.jpg,1,ai,test,AI Generated/538977.jpg,6144,6144,JPEG,0.99998856,1,True,0.0
+ai_00796,images/ai_00796.jpg,1,ai,test,AI Generated/543216.jpg,1024,1024,JPEG,0.9999999,1,True,0.0
+ai_00815,images/ai_00815.jpg,1,ai,test,AI Generated/564650.jpg,2912,1632,PNG,1.0,1,True,0.0
+ai_00817,images/ai_00817.jpg,1,ai,test,AI Generated/568626.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00819,images/ai_00819.jpg,1,ai,test,AI Generated/5705.jpg,1024,1024,JPEG,0.9872218,1,True,0.0
+ai_00822,images/ai_00822.jpg,1,ai,test,AI Generated/575468.jpg,824,824,PNG,0.9999987,1,True,0.0
+ai_00839,images/ai_00839.jpg,1,ai,test,AI Generated/593007.jpg,1024,1024,JPEG,1.0314263e-06,0,False,0.9999979
+ai_00840,images/ai_00840.jpg,1,ai,test,AI Generated/593465.jpg,1024,1024,PNG,0.99842215,1,True,0.0
+ai_00850,images/ai_00850.jpg,1,ai,test,AI Generated/599163.jpg,1024,1024,PNG,0.9996488,1,True,0.0
+ai_00852,images/ai_00852.jpg,1,ai,test,AI Generated/600350.jpg,1344,896,PNG,1.0,1,True,0.0
+ai_00859,images/ai_00859.jpg,1,ai,test,AI Generated/6107.jpg,1024,1024,JPEG,0.99999535,1,True,0.0
+ai_00865,images/ai_00865.jpg,1,ai,test,AI Generated/616677.jpg,1456,816,PNG,9.538394e-06,0,False,0.9999809
+ai_00881,images/ai_00881.jpg,1,ai,test,AI Generated/643571.jpg,1280,1280,JPEG,3.40066e-13,0,False,1.0
+ai_00883,images/ai_00883.jpg,1,ai,test,AI Generated/646974.jpg,1024,1024,JPEG,0.8756165,1,True,0.0
+ai_00891,images/ai_00891.jpg,1,ai,test,AI Generated/661765.jpg,816,1456,PNG,1.0,1,True,0.0
+ai_00900,images/ai_00900.jpg,1,ai,test,AI Generated/669010.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00908,images/ai_00908.jpg,1,ai,test,AI Generated/6796.jpg,1456,816,JPEG,0.99567187,1,True,0.0
+ai_00917,images/ai_00917.jpg,1,ai,test,AI Generated/6952.jpg,1024,1024,JPEG,0.9997888,1,True,0.0
+ai_00924,images/ai_00924.jpg,1,ai,test,AI Generated/7061.jpg,1024,1024,JPEG,3.6514837e-06,0,False,0.99999267
+ai_00940,images/ai_00940.jpg,1,ai,test,AI Generated/734405.jpg,2048,2048,JPEG,1.0,1,True,0.0
+ai_00942,images/ai_00942.jpg,1,ai,test,AI Generated/735461.jpg,1080,1080,PNG,0.9504615,1,True,0.0
+ai_00944,images/ai_00944.jpg,1,ai,test,AI Generated/739121.jpg,1024,1024,PNG,1.0,1,True,0.0
+ai_00945,images/ai_00945.jpg,1,ai,test,AI Generated/739163.jpg,768,768,PNG,0.0027543576,0,False,0.9944913
+ai_00949,images/ai_00949.jpg,1,ai,test,AI Generated/755861.jpg,1456,816,PNG,0.999998,1,True,0.0
+ai_00950,images/ai_00950.jpg,1,ai,test,AI Generated/762021.jpg,2048,2048,JPEG,0.015130243,0,False,0.9697395
+ai_00952,images/ai_00952.jpg,1,ai,test,AI Generated/769418.jpg,1456,816,JPEG,0.9971418,1,True,0.0
+ai_00962,images/ai_00962.jpg,1,ai,test,AI Generated/787602.jpg,896,1344,JPEG,0.9999987,1,True,0.0
+ai_00964,images/ai_00964.jpg,1,ai,test,AI Generated/7966.jpg,1024,1024,JPEG,0.99955434,1,True,0.0
+ai_00968,images/ai_00968.jpg,1,ai,test,AI Generated/799041.jpg,2048,2048,PNG,1.0,1,True,0.0
+ai_00970,images/ai_00970.jpg,1,ai,test,AI Generated/801252.jpg,1024,1024,JPEG,0.7113642,1,True,0.0
+ai_00976,images/ai_00976.jpg,1,ai,test,AI Generated/815253.jpg,1536,1536,PNG,0.9998197,1,True,0.0
+ai_00978,images/ai_00978.jpg,1,ai,test,AI Generated/8218.jpg,1024,1024,JPEG,1.0,1,True,0.0
+ai_00981,images/ai_00981.jpg,1,ai,test,AI Generated/8328.jpg,1696,704,JPEG,0.0013273029,0,False,0.9973454
+ai_00992,images/ai_00992.jpg,1,ai,test,AI Generated/8995.jpg,1024,1024,JPEG,0.6211498,1,True,0.0
+ai_00993,images/ai_00993.jpg,1,ai,test,AI Generated/9004.jpg,1344,896,JPEG,1.0,1,True,0.0
+ai_00995,images/ai_00995.jpg,1,ai,test,AI Generated/9088.jpg,2912,1632,JPEG,0.0030313868,0,False,0.99393725
+real_01001,images/real_01001.jpg,0,real,test,Real/0074.jpg,4048,3032,JPEG,1.5355506e-10,0,True,0.0
+real_01005,images/real_01005.jpg,0,real,test,Real/0141.jpg,6000,4000,JPEG,6.2753756e-12,0,True,0.0
+real_01010,images/real_01010.jpg,0,real,test,Real/0273.jpg,594,600,JPEG,0.0005889022,0,True,0.0
+real_01015,images/real_01015.jpg,0,real,test,Real/0372.jpg,1110,763,JPEG,0.0047758543,0,True,0.0
+real_01034,images/real_01034.jpg,0,real,test,Real/0861.jpg,652,800,JPEG,0.0014079377,0,True,0.0
+real_01039,images/real_01039.jpg,0,real,test,Real/10039.jpg,1080,1512,JPEG,0.00018003384,0,True,0.0
+real_01041,images/real_01041.jpg,0,real,test,Real/10058.jpg,3890,2605,JPEG,0.00017192085,0,True,0.0
+real_01042,images/real_01042.jpg,0,real,test,Real/10062.jpg,3654,5473,JPEG,0.0001536576,0,True,0.0
+real_01049,images/real_01049.jpg,0,real,test,Real/10201.jpg,1000,714,JPEG,0.9999548,1,False,0.99990964
+real_01057,images/real_01057.jpg,0,real,test,Real/10383.jpg,542,824,JPEG,2.3989006e-13,0,True,0.0
+real_01063,images/real_01063.jpg,0,real,test,Real/10550.jpg,850,723,JPEG,1.030942e-09,0,True,0.0
+real_01065,images/real_01065.jpg,0,real,test,Real/10597.jpg,3840,5760,JPEG,0.004921156,0,True,0.0
+real_01069,images/real_01069.jpg,0,real,test,Real/10643.jpg,1080,608,JPEG,0.0017394099,0,True,0.0
+real_01076,images/real_01076.jpg,0,real,test,Real/10849.jpg,570,396,JPEG,0.015164959,0,True,0.0
+real_01087,images/real_01087.jpg,0,real,test,Real/112391.jpg,1080,1620,JPEG,0.9838688,1,False,0.96773756
+real_01102,images/real_01102.jpg,0,real,test,Real/11430.jpg,470,640,JPEG,0.0047469386,0,True,0.0
+real_01111,images/real_01111.jpg,0,real,test,Real/1157.jpg,1080,1350,JPEG,0.6643088,1,False,0.32861757
+real_01113,images/real_01113.jpg,0,real,test,Real/1161.jpg,1080,1350,JPEG,0.007384165,0,True,0.0
+real_01114,images/real_01114.jpg,0,real,test,Real/11617.jpg,4000,6000,JPEG,8.1575496e-11,0,True,0.0
+real_01117,images/real_01117.jpg,0,real,test,Real/11641.jpg,1168,880,JPEG,8.0490885e-05,0,True,0.0
+real_01123,images/real_01123.jpg,0,real,test,Real/11682.jpg,1257,1024,JPEG,0.000157469,0,True,0.0
+real_01137,images/real_01137.jpg,0,real,test,Real/11855.jpg,2024,2477,JPEG,0.9727447,1,False,0.9454894
+real_01141,images/real_01141.jpg,0,real,test,Real/11901.jpg,800,510,JPEG,6.1774425e-14,0,True,0.0
+real_01167,images/real_01167.jpg,0,real,test,Real/12414.jpg,3295,4559,JPEG,0.99388206,1,False,0.9877641
+real_01170,images/real_01170.jpg,0,real,test,Real/12464.jpg,332,425,JPEG,1.4986755e-10,0,True,0.0
+real_01177,images/real_01177.jpg,0,real,test,Real/125924.jpg,1080,1620,JPEG,5.585106e-09,0,True,0.0
+real_01182,images/real_01182.jpg,0,real,test,Real/12679.jpg,789,1219,JPEG,3.7098598e-06,0,True,0.0
+real_01187,images/real_01187.jpg,0,real,test,Real/127551.jpg,5760,3840,JPEG,0.56219935,1,False,0.12439871
+real_01188,images/real_01188.jpg,0,real,test,Real/12759.jpg,691,900,JPEG,3.2026413e-09,0,True,0.0
+real_01189,images/real_01189.jpg,0,real,test,Real/12768.jpg,772,549,JPEG,0.6484391,1,False,0.29687822
+real_01195,images/real_01195.jpg,0,real,test,Real/129127.jpg,5760,3840,JPEG,0.96750736,1,False,0.9350147
+real_01212,images/real_01212.jpg,0,real,test,Real/132254.jpg,1000,517,JPEG,8.20129e-12,0,True,0.0
+real_01221,images/real_01221.jpg,0,real,test,Real/13374.jpg,12991,7697,JPEG,5.0281813e-16,0,True,0.0
+real_01272,images/real_01272.jpg,0,real,test,Real/14151.jpg,6000,4000,JPEG,0.99997425,1,False,0.9999485
+real_01275,images/real_01275.jpg,0,real,test,Real/14237.jpg,6000,4000,JPEG,0.00018205857,0,True,0.0
+real_01277,images/real_01277.jpg,0,real,test,Real/14259.jpg,6000,4000,JPEG,0.05084869,0,True,0.0
+real_01279,images/real_01279.jpg,0,real,test,Real/14312.jpg,4764,6352,JPEG,8.030843e-06,0,True,0.0
+real_01286,images/real_01286.jpg,0,real,test,Real/14476.jpg,4475,2978,JPEG,7.51753e-06,0,True,0.0
+real_01287,images/real_01287.jpg,0,real,test,Real/144972.jpg,512,409,JPEG,0.0040425076,0,True,0.0
+real_01290,images/real_01290.jpg,0,real,test,Real/14539.jpg,2517,3437,JPEG,0.00014961713,0,True,0.0
+real_01296,images/real_01296.jpg,0,real,test,Real/146945.jpg,5120,2552,JPEG,0.0024998863,0,True,0.0
+real_01300,images/real_01300.jpg,0,real,test,Real/14737.jpg,4000,5461,JPEG,2.2130492e-10,0,True,0.0
+real_01301,images/real_01301.jpg,0,real,test,Real/14843.jpg,3591,4788,JPEG,0.3848735,0,True,0.0
+real_01303,images/real_01303.jpg,0,real,test,Real/1488.jpg,1080,1620,JPEG,3.073819e-08,0,True,0.0
+real_01313,images/real_01313.jpg,0,real,test,Real/15027.jpg,1080,1620,JPEG,5.320378e-09,0,True,0.0
+real_01314,images/real_01314.jpg,0,real,test,Real/15030.jpg,1080,1620,JPEG,0.06996425,0,True,0.0
+real_01317,images/real_01317.jpg,0,real,test,Real/15103.jpg,1080,720,JPEG,4.005179e-08,0,True,0.0
+real_01329,images/real_01329.jpg,0,real,test,Real/15370.jpg,1080,1620,JPEG,5.456528e-06,0,True,0.0
+real_01332,images/real_01332.jpg,0,real,test,Real/1539.jpg,405,480,JPEG,0.99764913,1,False,0.99529827
+real_01333,images/real_01333.jpg,0,real,test,Real/15404.jpg,1080,1617,JPEG,6.402772e-08,0,True,0.0
+real_01339,images/real_01339.jpg,0,real,test,Real/15638.jpg,6000,4000,JPEG,2.7684044e-10,0,True,0.0
+real_01349,images/real_01349.jpg,0,real,test,Real/15783.jpg,3888,2592,JPEG,4.6544373e-11,0,True,0.0
+real_01359,images/real_01359.jpg,0,real,test,Real/15949.jpg,622,800,JPEG,1.4270061e-09,0,True,0.0
+real_01366,images/real_01366.jpg,0,real,test,Real/160893.jpg,1080,1620,JPEG,3.7434813e-05,0,True,0.0
+real_01372,images/real_01372.jpg,0,real,test,Real/16236.jpg,1080,746,JPEG,9.186949e-17,0,True,0.0
+real_01375,images/real_01375.jpg,0,real,test,Real/1626.jpg,1080,608,JPEG,8.517868e-05,0,True,0.0
+real_01385,images/real_01385.jpg,0,real,test,Real/164677.jpg,1080,1618,JPEG,0.0029606167,0,True,0.0
+real_01403,images/real_01403.jpg,0,real,test,Real/16916.jpg,848,1000,JPEG,0.0011678298,0,True,0.0
+real_01410,images/real_01410.jpg,0,real,test,Real/17091.jpg,944,777,JPEG,1.0,1,False,1.0
+real_01432,images/real_01432.jpg,0,real,test,Real/17622.jpg,705,496,JPEG,9.680244e-05,0,True,0.0
+real_01437,images/real_01437.jpg,0,real,test,Real/17763.jpg,3648,5472,JPEG,3.0992632e-07,0,True,0.0
+real_01442,images/real_01442.jpg,0,real,test,Real/17836.jpg,3961,5546,JPEG,0.030032825,0,True,0.0
+real_01451,images/real_01451.jpg,0,real,test,Real/17912.jpg,507,360,JPEG,5.867219e-11,0,True,0.0
+real_01475,images/real_01475.jpg,0,real,test,Real/18451.jpg,5184,3456,JPEG,1.5427466e-06,0,True,0.0
+real_01483,images/real_01483.jpg,0,real,test,Real/18638.jpg,549,768,JPEG,3.0252274e-09,0,True,0.0
+real_01484,images/real_01484.jpg,0,real,test,Real/18672.jpg,5184,3456,JPEG,1.9278662e-08,0,True,0.0
+real_01490,images/real_01490.jpg,0,real,test,Real/18771.jpg,333,517,JPEG,5.2184305e-07,0,True,0.0
+real_01491,images/real_01491.jpg,0,real,test,Real/18854.jpg,1057,722,JPEG,1.148003e-14,0,True,0.0
+real_01500,images/real_01500.jpg,0,real,test,Real/191583.jpg,1080,1620,JPEG,8.716405e-30,0,True,0.0
+real_01502,images/real_01502.jpg,0,real,test,Real/19224.jpg,4912,7360,JPEG,6.8374835e-09,0,True,0.0
+real_01503,images/real_01503.jpg,0,real,test,Real/19250.jpg,5184,3456,JPEG,0.0005039148,0,True,0.0
+real_01504,images/real_01504.jpg,0,real,test,Real/19251.jpg,3091,2048,JPEG,5.496624e-11,0,True,0.0
+real_01508,images/real_01508.jpg,0,real,test,Real/19366.jpg,4000,6000,JPEG,9.9914566e-09,0,True,0.0
+real_01518,images/real_01518.jpg,0,real,test,Real/19596.jpg,2912,4368,JPEG,0.02656021,0,True,0.0
+real_01525,images/real_01525.jpg,0,real,test,Real/19727.jpg,3992,2242,JPEG,3.04667e-09,0,True,0.0
+real_01526,images/real_01526.jpg,0,real,test,Real/197312.jpg,1080,720,JPEG,2.2725857e-09,0,True,0.0
+real_01528,images/real_01528.jpg,0,real,test,Real/197540.jpg,5095,7642,JPEG,1.0945315e-11,0,True,0.0
+real_01529,images/real_01529.jpg,0,real,test,Real/19776.jpg,5261,3507,JPEG,2.6593967e-05,0,True,0.0
+real_01534,images/real_01534.jpg,0,real,test,Real/19833.jpg,4752,3168,JPEG,7.133673e-12,0,True,0.0
+real_01535,images/real_01535.jpg,0,real,test,Real/19847.jpg,5330,3553,JPEG,1.5845849e-09,0,True,0.0
+real_01543,images/real_01543.jpg,0,real,test,Real/200007.jpg,1080,1620,JPEG,0.0033201785,0,True,0.0
+real_01547,images/real_01547.jpg,0,real,test,Real/20042.jpg,4160,6240,JPEG,5.7073524e-10,0,True,0.0
+real_01548,images/real_01548.jpg,0,real,test,Real/20061.jpg,5472,3648,JPEG,1.1574406e-06,0,True,0.0
+real_01553,images/real_01553.jpg,0,real,test,Real/20088.jpg,3766,2511,JPEG,6.799702e-13,0,True,0.0
+real_01555,images/real_01555.jpg,0,real,test,Real/20119.jpg,6000,4000,JPEG,0.9353498,1,False,0.87069964
+real_01583,images/real_01583.jpg,0,real,test,Real/20684.jpg,6192,8256,JPEG,1.05373096e-16,0,True,0.0
+real_01586,images/real_01586.jpg,0,real,test,Real/20760.jpg,8688,5792,JPEG,1.9837074e-05,0,True,0.0
+real_01590,images/real_01590.jpg,0,real,test,Real/2081.jpg,1080,1620,JPEG,1.9269246e-16,0,True,0.0
+real_01597,images/real_01597.jpg,0,real,test,Real/20906.jpg,2736,1824,PNG,0.001891103,0,True,0.0
+real_01599,images/real_01599.jpg,0,real,test,Real/20937.jpg,3739,5608,JPEG,8.19905e-09,0,True,0.0
+real_01602,images/real_01602.jpg,0,real,test,Real/20978.jpg,3648,2432,JPEG,1.7607395e-17,0,True,0.0
+real_01609,images/real_01609.jpg,0,real,test,Real/21095.jpg,3000,2000,JPEG,2.6115242e-08,0,True,0.0
+real_01611,images/real_01611.jpg,0,real,test,Real/21126.jpg,5304,7952,JPEG,0.00016249732,0,True,0.0
+real_01615,images/real_01615.jpg,0,real,test,Real/21154.jpg,5472,3648,JPEG,1.1189835e-12,0,True,0.0
+real_01617,images/real_01617.jpg,0,real,test,Real/21188.jpg,5904,3936,JPEG,8.236178e-10,0,True,0.0
+real_01621,images/real_01621.jpg,0,real,test,Real/21326.jpg,3648,5472,JPEG,6.485503e-12,0,True,0.0
+real_01622,images/real_01622.jpg,0,real,test,Real/2137.jpg,1080,730,JPEG,0.0016775323,0,True,0.0
+real_01628,images/real_01628.jpg,0,real,test,Real/21494.jpg,2448,2448,JPEG,8.288177e-15,0,True,0.0
+real_01634,images/real_01634.jpg,0,real,test,Real/21585.jpg,3000,2002,JPEG,8.498423e-07,0,True,0.0
+real_01637,images/real_01637.jpg,0,real,test,Real/216318.jpg,1080,810,JPEG,1.0996361e-13,0,True,0.0
+real_01641,images/real_01641.jpg,0,real,test,Real/21706.jpg,4480,6720,JPEG,5.4246498e-06,0,True,0.0
+real_01648,images/real_01648.jpg,0,real,test,Real/2193.jpg,1080,720,JPEG,0.99998796,1,False,0.9999759
+real_01651,images/real_01651.jpg,0,real,test,Real/21966.jpg,2019,2524,JPEG,4.5950653e-14,0,True,0.0
+real_01654,images/real_01654.jpg,0,real,test,Real/22046.jpg,6000,4000,JPEG,7.852395e-05,0,True,0.0
+real_01669,images/real_01669.jpg,0,real,test,Real/22444.jpg,6016,4016,JPEG,0.39262548,0,True,0.0
+real_01672,images/real_01672.jpg,0,real,test,Real/22491.jpg,5040,3360,JPEG,0.0011337452,0,True,0.0
+real_01675,images/real_01675.jpg,0,real,test,Real/22604.jpg,4223,2857,JPEG,0.0026771112,0,True,0.0
+real_01687,images/real_01687.jpg,0,real,test,Real/22860.jpg,1080,1620,JPEG,1.1070913e-11,0,True,0.0
+real_01689,images/real_01689.jpg,0,real,test,Real/22932.jpg,1080,1620,JPEG,0.00032648182,0,True,0.0
+real_01699,images/real_01699.jpg,0,real,test,Real/23220.jpg,1080,1620,JPEG,0.8229494,1,False,0.6458988
+real_01702,images/real_01702.jpg,0,real,test,Real/23273.jpg,1080,1620,JPEG,0.00021907662,0,True,0.0
+real_01706,images/real_01706.jpg,0,real,test,Real/23412.jpg,1080,810,JPEG,5.044291e-12,0,True,0.0
+real_01711,images/real_01711.jpg,0,real,test,Real/23474.jpg,1080,1350,JPEG,8.284618e-12,0,True,0.0
+real_01718,images/real_01718.jpg,0,real,test,Real/23680.jpg,1080,1620,JPEG,3.550295e-05,0,True,0.0
+real_01720,images/real_01720.jpg,0,real,test,Real/23713.jpg,1080,1620,JPEG,9.969347e-06,0,True,0.0
+real_01732,images/real_01732.jpg,0,real,test,Real/251648.jpg,1080,1080,JPEG,1.0,1,False,1.0
+real_01735,images/real_01735.jpg,0,real,test,Real/254317.jpg,1080,1620,JPEG,0.042347316,0,True,0.0
+real_01736,images/real_01736.jpg,0,real,test,Real/255007.jpg,1080,1350,JPEG,0.9984394,1,False,0.99687874
+real_01749,images/real_01749.jpg,0,real,test,Real/278838.jpg,1080,1620,JPEG,8.415049e-12,0,True,0.0
+real_01752,images/real_01752.jpg,0,real,test,Real/282422.jpg,405,625,JPEG,1.1059792e-11,0,True,0.0
+real_01779,images/real_01779.jpg,0,real,test,Real/3209.jpg,1080,1350,JPEG,0.02873838,0,True,0.0
+real_01786,images/real_01786.jpg,0,real,test,Real/329222.jpg,1080,1620,JPEG,3.511149e-07,0,True,0.0
+real_01790,images/real_01790.jpg,0,real,test,Real/335878.jpg,1080,1920,JPEG,0.3723761,0,True,0.0
+real_01791,images/real_01791.jpg,0,real,test,Real/336197.jpg,1080,720,JPEG,1.4058863e-07,0,True,0.0
+real_01809,images/real_01809.jpg,0,real,test,Real/369262.jpg,1080,1620,JPEG,1.6024696e-08,0,True,0.0
+real_01812,images/real_01812.jpg,0,real,test,Real/3750.jpg,1200,874,JPEG,7.752052e-09,0,True,0.0
+real_01821,images/real_01821.jpg,0,real,test,Real/388520.jpg,1080,675,JPEG,0.2576277,0,True,0.0
+real_01828,images/real_01828.jpg,0,real,test,Real/405410.jpg,2400,1352,JPEG,1.211053e-07,0,True,0.0
+real_01832,images/real_01832.jpg,0,real,test,Real/415884.jpg,5236,7850,JPEG,3.921272e-13,0,True,0.0
+real_01837,images/real_01837.jpg,0,real,test,Real/4275.jpg,1080,719,JPEG,0.26539546,0,True,0.0
+real_01851,images/real_01851.jpg,0,real,test,Real/444002.jpg,1080,718,JPEG,4.2989681e-13,0,True,0.0
+real_01861,images/real_01861.jpg,0,real,test,Real/4640.jpg,1080,720,JPEG,6.3937534e-08,0,True,0.0
+real_01893,images/real_01893.jpg,0,real,test,Real/544693.jpg,1080,1620,JPEG,0.00012002987,0,True,0.0
+real_01908,images/real_01908.jpg,0,real,test,Real/5817.jpg,1080,1620,JPEG,0.90117335,1,False,0.8023467
+real_01910,images/real_01910.jpg,0,real,test,Real/5853.jpg,1080,1620,JPEG,0.2673637,0,True,0.0
+real_01918,images/real_01918.jpg,0,real,test,Real/606617.jpg,1080,608,JPEG,0.1702133,0,True,0.0
+real_01927,images/real_01927.jpg,0,real,test,Real/631346.jpg,1080,720,JPEG,0.9999995,1,False,0.99999905
+real_01932,images/real_01932.jpg,0,real,test,Real/6459.jpg,1080,1440,JPEG,1.0,1,False,1.0
+real_01939,images/real_01939.jpg,0,real,test,Real/659579.jpg,1080,720,JPEG,1.1827302e-19,0,True,0.0
+real_01943,images/real_01943.jpg,0,real,test,Real/669893.jpg,1234,621,JPEG,8.366193e-06,0,True,0.0
+real_01948,images/real_01948.jpg,0,real,test,Real/6719.jpg,1080,1615,JPEG,0.999539,1,False,0.99907804
+real_01953,images/real_01953.jpg,0,real,test,Real/6941.jpg,1080,1620,JPEG,2.0402098e-05,0,True,0.0
+real_01956,images/real_01956.jpg,0,real,test,Real/718803.jpg,1080,1424,JPEG,0.051871773,0,True,0.0
+real_01961,images/real_01961.jpg,0,real,test,Real/746368.jpg,640,800,JPEG,3.2998912e-07,0,True,0.0
+real_01962,images/real_01962.jpg,0,real,test,Real/7468.jpg,505,403,JPEG,6.7401656e-06,0,True,0.0
+real_01967,images/real_01967.jpg,0,real,test,Real/7744.jpg,1080,1620,JPEG,0.04586575,0,True,0.0
+real_01970,images/real_01970.jpg,0,real,test,Real/7894.jpg,1080,1440,JPEG,0.2060728,0,True,0.0
+real_01973,images/real_01973.jpg,0,real,test,Real/801242.jpg,1080,1350,JPEG,0.00023538167,0,True,0.0
+real_01974,images/real_01974.jpg,0,real,test,Real/8075.jpg,1080,1350,JPEG,0.99996316,1,False,0.9999263
+real_01982,images/real_01982.jpg,0,real,test,Real/838777.jpg,1080,675,JPEG,0.00035594334,0,True,0.0

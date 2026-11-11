@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "smoke_allowed": false,
+  "failures": [],
+  "runs": [
+    {
+      "run": "simple_cnn",
+      "reload_max_diff": 3.0244445803351283e-07,
+      "raw_inference_max_diff": 1.2498341369626687e-06
+    },
+    {
+      "run": "resnet50",
+      "reload_max_diff": 4.2855094909421965e-06,
+      "raw_inference_max_diff": 1.0269844055166288e-06
+    },
+    {
+      "run": "efficientnet_b0",
+      "reload_max_diff": 3.852088737488213e-06,
+      "raw_inference_max_diff": 1.783294677759617e-06
+    }
+  ],
+  "torch": "2.14.1+cu130",
+  "cuda": true
+}

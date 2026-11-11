@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixeltrace"
+version = "1.0.0"
+description = "AI-generated vs real image detection with an audited, leakage-controlled evaluation protocol"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Abir Ahmmed (devbyabir)" }]
+classifiers = ["Private :: Do Not Upload"]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.packages.find]
+where = ["src"]

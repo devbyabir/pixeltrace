@@ -1,0 +1,8 @@
+# ImageNet-pretrained ResNet-50, fully fine-tuned
+model: resnet50.a1_in1k
+run_name: resnet50
+lr: 1.0e-4
+weight_decay: 0.05
+epochs: 25
+patience: 7
+batch_size: 32

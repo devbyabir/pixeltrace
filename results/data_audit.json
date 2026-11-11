@@ -1,0 +1,71 @@
+{
+  "raw_files": 3998,
+  "exact_duplicate_copies": 1998,
+  "distinct_images_by_occurrence": {
+    "1": 2,
+    "2": 1998
+  },
+  "near_duplicates_removed": 0,
+  "unique_images_after_dedup": 2000,
+  "cross_class_duplicate_groups_dropped": 0,
+  "near_duplicate_max_hamming": 4,
+  "raw_bias": {
+    "ai": {
+      "images": 1999,
+      "square_pct": 62.1,
+      "png_pct": 36.3,
+      "exif_pct": 51.8,
+      "median_megapixels": 1.05,
+      "top_resolutions": [
+        "1024x1024: 934",
+        "1456x816: 134",
+        "2048x2048: 134"
+      ]
+    },
+    "real": {
+      "images": 1999,
+      "square_pct": 0.8,
+      "png_pct": 0.1,
+      "exif_pct": 9.5,
+      "median_megapixels": 1.75,
+      "top_resolutions": [
+        "1080x1620: 300",
+        "1080x720: 132",
+        "1080x1350: 64"
+      ]
+    }
+  },
+  "metadata_only_baseline_raw": {
+    "fit_on": "train",
+    "val_accuracy": 0.9767,
+    "val_roc_auc": 0.9898,
+    "test_accuracy": 0.9767,
+    "test_roc_auc": 0.9819
+  },
+  "filesize_only_baseline_cleaned": {
+    "fit_on": "train",
+    "val_accuracy": 0.56,
+    "val_roc_auc": 0.5649,
+    "test_accuracy": 0.5433,
+    "test_roc_auc": 0.5636
+  },
+  "split_seed": 42,
+  "split": {
+    "train": {
+      "ai": 700,
+      "real": 700
+    },
+    "val": {
+      "ai": 150,
+      "real": 150
+    },
+    "test": {
+      "ai": 150,
+      "real": 150
+    }
+  },
+  "output": {
+    "size": 512,
+    "jpeg_quality": 95
+  }
+}

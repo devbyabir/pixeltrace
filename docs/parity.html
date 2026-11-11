@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelTrace Parity</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <section>
+    <p><a href="index.html">← PixelTrace</a></p>
+    <h1 style="font-size:32px">Browser vs Python parity</h1>
+    <p>Runs the browser preprocessing and model on the synthetic test patterns and compares each stage with the Python reference
+      (Pillow 13.0.0 + ONNX Runtime on the training machine). Pixel values are 0–255.</p>
+    <div id="status" class="status">Running…</div>
+    <div class="table-wrap"><table id="t">
+      <thead><tr><th>Sample</th><th>512 resize (before JPEG)</th><th>after JPEG q95</th>
+        <th>224 input: differing / max |Δ|</th><th>P(AI) Python</th><th>P(AI) browser</th><th>|Δ|</th></tr></thead>
+      <tbody></tbody></table></div>
+    <pre id="report" class="small" style="white-space:pre-wrap"></pre>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
+<script type="module">
+import { preprocess } from "./assets/preprocess.js";
+const $ = (s) => document.querySelector(s);
+function cmp(a, b) { let n = 0, m = 0; for (let i = 0; i < a.length; i++) { const d = Math.abs(a[i] - b[i]); if (d) { n++; if (d > m) m = d; } } return { n, m }; }
+async function hashCmp(arr, ref) {
+  const h = [...new Uint8Array(await crypto.subtle.digest("SHA-256", arr))].map((b) => b.toString(16).padStart(2, "0")).join("");
+  return h === ref ? { n: 0, m: 0 } : { n: "hash differs", m: "?" };
+}
+async function bin(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + " HTTP " + r.status); return new Uint8Array(await r.arrayBuffer()); }
+const report = { userAgent: navigator.userAgent, samples: [] };
+try {
+  const idx = await (await fetch("parity/index.json")).json();
+  let refs = null, session = null, results = null;
+  try { refs = await (await fetch("parity/reference_predictions.json")).json(); } catch {}
+  try { results = await (await fetch("assets/results.json")).json(); } catch {}
+  if (refs && results?.model && window.ort) {
+    ort.env.wasm.numThreads = 1;
+    session = await ort.InferenceSession.create(results.model.file, { executionProviders: ["wasm"] });
+  }
+  for (const s of idx) {
+    const blob = await (await fetch("samples/" + s.file)).blob();
+    const out = await preprocess(blob, 224);
+    // 512-px stages: compared by SHA-256 (full reference arrays are not published, only hashes)
+    const c0 = await hashCmp(out.squarePreJpeg, s.sq_sha256);
+    const c1 = await hashCmp(out.squareRGB, s.jpg_sha256);
+    const c2 = cmp(out.smallRGB, await bin(`parity/${s.name}.small.bin`));
+    let pPy = null, pJs = null;
+    if (session) {
+      const r = await session.run({ pixels: new ort.Tensor("float32", out.tensor, [1, 3, 224, 224]) });
+      pJs = r.scores.data[1];
+      pPy = refs.find((x) => x.file === s.file)?.p_ai_onnx ?? null;
+    }
+    const row = { name: s.name, resize512: c0, jpeg512: c1, input224: c2, p_ai_python: pPy, p_ai_browser: pJs,
+                  abs_diff: pPy != null && pJs != null ? Math.abs(pPy - pJs) : null };
+    report.samples.push(row);
+    const tr = document.createElement("tr");
+    for (const v of [s.name, `${c0.n} / ${c0.m}`, `${c1.n} / ${c1.m}`, `${c2.n} / ${c2.m}`,
+                     pPy?.toFixed(4) ?? "–", pJs?.toFixed(4) ?? "–", row.abs_diff?.toFixed(4) ?? "–"]) {
+      const td = document.createElement("td"); td.textContent = v; tr.appendChild(td);
+    }
+    $("#t tbody").appendChild(tr);
+  }
+  const maxP = Math.max(...report.samples.map((r) => r.abs_diff ?? 0));
+  report.resize_bit_exact = report.samples.every((r) => r.resize512.n === 0);
+  report.pipeline_bit_exact = report.samples.every((r) => r.resize512.n === 0 && r.jpeg512.n === 0 && r.input224.n === 0);
+  report.max_abs_p_ai_diff = session ? maxP : null;
+  report.label_agreement = session ? report.samples.every((r) => (r.p_ai_python >= 0.5) === (r.p_ai_browser >= 0.5)) : null;
+  $("#status").textContent = `Done. Resize stage bit-exact: ${report.resize_bit_exact}; whole pipeline bit-exact: ${report.pipeline_bit_exact}. ` +
+    (session ? `Max |ΔP(AI)| = ${maxP.toFixed(4)}; labels agree: ${report.label_agreement}.` : "Model comparison skipped (no model or reference predictions).");
+} catch (e) {
+  $("#status").textContent = "Parity check failed: " + e.message; $("#status").classList.add("error"); report.error = e.message;
+}
+$("#report").textContent = JSON.stringify(report, null, 1);
+window.PARITY_REPORT = report;
+</script>
+</body>
+</html>

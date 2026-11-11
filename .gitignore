@@ -1,0 +1,43 @@
+# data (raw dataset is ~3.6 GB, processed ~190 MB: never commit)
+data/
+*.zip
+
+# training outputs: keep metrics/plots, drop checkpoints and per-image dumps
+results/runs/*/best.pt
+# per-image predictions are kept (ids + scores only, no pixels)
+*.pt
+*.pth
+*.keras
+*.h5
+
+# python / envs
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# private material: legacy screenshots, dataset-derived images
+private/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+dist/
+
+# outputs that contain dataset images (licence unknown, see DATASET.md): keep private
+results/**/gradcam.jpg
+results/**/errors_grid.jpg
+results/smoke/
+results/_rebuild_check/
+
+# unrelated local work and tool config (not part of the PixelTrace release)
+output/
+tmp/
+.claude/
+
+# ONNX model is published once, in docs/model/ (identical copy in results/onnx/ stays local)
+results/onnx/*.onnx
