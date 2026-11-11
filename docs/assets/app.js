@@ -1,5 +1,6 @@
 // PixelTrace showcase: fills the page from results.json and runs the ONNX model in the browser.
 import { preprocess } from "./preprocess.js";
+import { footer } from "./footer.js";
 
 const $ = (s) => document.querySelector(s);
 const fmt = (v, d = 3) => (typeof v === "number" ? v.toFixed(d) : "–");
@@ -24,6 +25,12 @@ async function loadResults() {
     const v = get(RESULTS, el.dataset.k);
     if (v == null) return;
     el.textContent = typeof v === "number" && v < 1 && v > 0 ? pct(v) : v.toLocaleString("en-US");
+  });
+  const dep = RESULTS.models.find((m) => m.run === RESULTS.deployment.run);
+  RESULTS.headline = { acc: dep.accuracy, auc: dep.roc_auc.toFixed(3) };
+  document.querySelectorAll('[data-k^="headline."]').forEach((el) => {
+    const v = RESULTS.headline[el.dataset.k.split(".")[1]];
+    el.textContent = typeof v === "number" ? pct(v) : v;
   });
   renderTable();
   renderChart();
@@ -153,5 +160,6 @@ function setupDemo() {
   }
 }
 
+footer(document.querySelector("#footer"));
 await loadResults();
 setupDemo();

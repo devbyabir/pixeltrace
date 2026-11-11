@@ -92,7 +92,7 @@ def main():
     cands = [res / "onnx" / onnx["onnx"], ROOT / "docs" / "model" / "pixeltrace.onnx"]
     found = [c for c in cands if c.exists()]
     check(bool(found) and all(hashlib.sha256(c.read_bytes()).hexdigest() == onnx["onnx_sha256"] for c in found),
-          f"ONNX file present with the hash from onnx_parity.json ({', '.join(str(c.relative_to(ROOT)) for c in found)})")
+          f"ONNX file present with the hash from onnx_parity.json ({', '.join(c.as_posix() for c in found)})")
     print("\nLOCAL CHECK", "PASSED" if not fails else f"FAILED ({len(fails)})")
     sys.exit(1 if fails else 0)
 

@@ -1,0 +1,19 @@
+Copyright (c) 2026 Abir Ahmmed (devbyabir). All rights reserved.
+
+This repository, including the PixelTrace source code, documentation, website and the trained model
+weights (docs/model/pixeltrace.onnx), is the work of the author and is NOT released under an open-source
+licence. No permission is granted to copy, modify, redistribute, sublicense or use it in other works,
+except as allowed by applicable law or with the author's written permission.
+
+You are welcome to read the code, run the website, and try the demo.
+
+Please note:
+- The browser demo works by downloading the model file to the visitor's device, so it is technically
+  possible to obtain a copy of it. This notice states the author's rights; it does not, and cannot,
+  technically prevent downloading or copying a publicly served file.
+- The training images are not included in this repository or website. Their original source and licence
+  are unknown (see DATASET.md); no rights to them are claimed or granted.
+- Third-party software keeps its own licence: PyTorch, timm (including ImageNet-pretrained weights),
+  ONNX Runtime / ONNX Runtime Web, Pillow, NumPy, pandas, scikit-learn and matplotlib. The browser
+  resampler in docs/assets/preprocess.js follows the algorithm of Pillow's libImaging/Resample.c
+  (Pillow is distributed under the MIT-CMU licence).

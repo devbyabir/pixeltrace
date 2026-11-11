@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelTrace Results</title>
+<meta name="description" content="PixelTrace results dashboard: test metrics with confidence intervals, ROC curves, robustness and training curves.">
+<link rel="stylesheet" href="assets/style.css?v=1.0.1">
+</head>
+<body>
+<header class="hero slim">
+  <div class="wrap">
+    <nav class="site-nav"><a href="index.html">Overview &amp; demo</a><a href="dashboard.html" aria-current="page">Results</a><a href="report.html">Report</a></nav>
+    <h1>Results dashboard</h1>
+    <p class="lede">Every number on this page is generated from the files written by the training run; nothing is typed by hand.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <div class="tiles" id="tiles"></div>
+    <p class="note" id="split-note"></p>
+  </section>
+
+  <section>
+    <h2>Why the old 99 % was not the real number</h2>
+    <p>Test accuracy of the legacy notebooks, of a classifier that only reads file metadata, and of the rebuilt model. The metadata classifier never looks at pixels: its 97.7 % shows how predictable the raw labels were from file format, shape and EXIF alone.</p>
+    <div class="chart" id="c-context"></div>
+  </section>
+
+  <section>
+    <h2>Test performance with 95 % confidence intervals</h2>
+    <p>Filled dot: test value. Bar: 1,000-sample bootstrap 95 % CI. Hollow dot: validation ROC-AUC, the only number used to choose the deployed model.</p>
+    <div class="chart" id="c-auc"></div>
+    <div class="chart" id="c-acc"></div>
+  </section>
+
+  <section>
+    <h2>ROC curves (test split)</h2>
+    <p>True-positive rate (AI images correctly flagged) against false-positive rate (real photos wrongly flagged) across all thresholds. The dashed diagonal is chance.</p>
+    <div class="chart" id="c-roc"></div>
+  </section>
+
+  <section>
+    <h2>Robustness to everyday image degradation</h2>
+    <p>Test ROC-AUC after re-compressing, down-scaling or blurring the test images. Social media does all three.</p>
+    <div class="grid3">
+      <div class="chart" id="c-rob-jpeg"></div>
+      <div class="chart" id="c-rob-downscale"></div>
+      <div class="chart" id="c-rob-blur"></div>
+    </div>
+    <h3>Where the deployed model fails under degradation</h3>
+    <p id="recall-note"></p>
+    <div class="chart" id="c-recall"></div>
+  </section>
+
+  <section>
+    <h2>Training: validation ROC-AUC per epoch</h2>
+    <p>Each model kept the checkpoint with the best validation ROC-AUC; training stopped early when it had not improved for 7 epochs (12 for the from-scratch CNN).</p>
+    <div class="chart" id="c-train"></div>
+  </section>
+
+  <section>
+    <h2>Confusion matrix of the deployed model (test split, threshold 0.5)</h2>
+    <div id="c-cm"></div>
+  </section>
+
+  <section>
+    <h2>Method in one paragraph</h2>
+    <p>2,000 unique images (1,000 AI / 1,000 real) after removing 1,998 exact duplicates, split once into 1,400 / 300 / 300 (stratified, seed 42) and frozen in a hash manifest. Every image is centre-cropped to a square, re-encoded as JPEG q95 and stripped of metadata so file format, aspect ratio and EXIF no longer reveal the label. Models were trained on the training split only, checkpoints and the deployed model were chosen on the validation split, and the test split was evaluated once. Full details: <a href="report.html">report</a>.</p>
+  </section>
+</main>
+
+<footer class="wrap small" id="footer"></footer>
+<script type="module" src="assets/dashboard.js?v=1.0.1"></script>
+</body>
+</html>

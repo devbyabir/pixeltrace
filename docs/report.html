@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelTrace Report</title>
+<meta name="description" content="PixelTrace project report: problem, data audit, method, results, robustness and limitations.">
+<link rel="stylesheet" href="assets/style.css?v=1.0.1">
+</head>
+<body>
+<header class="hero slim">
+  <div class="wrap">
+    <nav class="site-nav"><a href="index.html">Overview &amp; demo</a><a href="dashboard.html">Results</a><a href="report.html" aria-current="page">Report</a></nav>
+    <h1>Project report</h1>
+    <p class="lede">PixelTrace: detecting AI-generated images, and measuring it honestly. Abir Ahmmed (devbyabir), 2026.</p>
+  </div>
+</header>
+
+<main class="wrap report">
+  <section>
+    <h2>1. Summary</h2>
+    <p>The first version of this project, a set of student notebooks, reported 93–99.6 % accuracy at telling AI-generated images from real photographs. An audit showed those numbers were not trustworthy: the test images leaked into training, almost every image existed twice, and the labels could be predicted from file metadata alone. PixelTrace rebuilds the experiment so that the reported number means what it says. The deployed model, <span data-k="deployment.label"></span>, reaches <strong data-k="m.dep.accuracy" data-f="pct"></strong> test accuracy (95 % CI <span data-k="m.dep.accuracy_95ci" data-f="ci-pct"></span>) and a test ROC-AUC of <strong data-k="m.dep.roc_auc" data-f="f3"></strong> on images it has never seen.</p>
+  </section>
+
+  <section>
+    <h2>2. Problem</h2>
+    <p>Given one image, output a score for how likely it is to be AI-generated. Two errors matter: flagging a real photo as fake, and passing a generated image as real. A score is not proof: it is only as good as the data the model has seen.</p>
+  </section>
+
+  <section>
+    <h2>3. Data and audit</h2>
+    <ul>
+      <li><span data-k="audit.raw" data-f="int"></span> files received from a senior colleague, in two folders (AI-generated, real). Original source, generators and licence are unknown, so no images are published.</li>
+      <li><span data-k="audit.dupes" data-f="int"></span> files were exact copies (1,998 images stored twice, 2 once), leaving <span data-k="split.total" data-f="int"></span> unique images.</li>
+      <li>The classes differed in file properties: AI images were mostly square, often PNG and often carried EXIF; real photos mostly non-square JPEGs. A classifier using only those properties, never the pixels, scored <strong data-k="baselines.metadata_raw.test_accuracy" data-f="pct"></strong> on the test split. That is a shortcut risk, not proof of what the old models learned.</li>
+      <li>The legacy notebooks also split the data with a dataset that reshuffled every epoch (test images leaked into training) and picked checkpoints on the test set.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Method</h2>
+    <ol>
+      <li><strong>De-duplicate, then split once:</strong> exact (SHA-256) and near-duplicate (perceptual hash) removal; stratified <span data-k="split.train" data-f="int"></span> / <span data-k="split.val" data-f="int"></span> / <span data-k="split.test" data-f="int"></span> split, frozen in a manifest of file hashes so anyone with the data can verify the identical split.</li>
+      <li><strong>Remove the known shortcuts:</strong> every image centre-cropped to a square, re-encoded as JPEG q95, metadata stripped. Afterwards the remaining file-size cue scores <span data-k="baselines.filesize_clean.test_accuracy" data-f="pct"></span> (near chance).</li>
+      <li><strong>Models:</strong> a CNN trained from scratch, and ImageNet-pretrained ResNet-50 and EfficientNet-B0 fine-tuned with AdamW, a cosine schedule and mild geometric augmentation. Trained on a Tesla T4 GPU.</li>
+      <li><strong>Selection on validation only:</strong> the best checkpoint of each model and the deployed model were chosen by validation ROC-AUC. The test split was evaluated once at the end.</li>
+      <li><strong>Evaluation:</strong> accuracy, macro-F1, AI precision/recall and ROC-AUC from probabilities, with 1,000-sample bootstrap 95 % confidence intervals; robustness to JPEG compression, down-scaling and blur; Grad-CAM inspection (kept private because it shows dataset images).</li>
+      <li><strong>Verification:</strong> an automated step checks that every checkpoint reloads to the same predictions, that the original image files give the same scores as the cleaned copies, that every metric can be recomputed from the saved per-image predictions, and that the browser (ONNX) model matches PyTorch.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>5. Results</h2>
+    <div class="table-wrap"><table id="results"><thead><tr><th>Model</th><th>Params (M)</th><th>Val ROC-AUC</th><th>Test accuracy (95 % CI)</th><th>Test ROC-AUC (95 % CI)</th></tr></thead><tbody></tbody></table></div>
+    <p>Pretrained models clearly beat the from-scratch CNN. EfficientNet-B0 and ResNet-50 overlap within their confidence intervals on a 300-image test set, so this experiment cannot rank them. EfficientNet-B0 was deployed because it had the higher validation score and is about six times smaller. Charts: <a href="dashboard.html">results dashboard</a>.</p>
+  </section>
+
+  <section>
+    <h2>6. Robustness</h2>
+    <p data-k="robustness_note"></p>
+  </section>
+
+  <section>
+    <h2>7. Limitations</h2>
+    <ul>
+      <li>Small, single-source dataset from unknown generators: the results do not show the model works on other generators, edited images or real-world photo pipelines.</li>
+      <li>Real photos were downscaled from much higher resolutions than the AI images; resampling leaves statistical traces a model may still exploit. Cleaning removed the format, shape and metadata cues, not this one.</li>
+      <li>300 test images give confidence intervals several percentage points wide.</li>
+      <li>The demo's score is a model output, not evidence that an image is authentic or fake.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. What I learned</h2>
+    <p>A high accuracy number is only meaningful together with how it was measured. Auditing my own earlier work for leakage, duplicates and shortcuts mattered more than adding another model architecture, and making every number re-computable from saved predictions made the final results defensible.</p>
+  </section>
+
+  <section>
+    <p><a class="cta" href="index.html#demo">Try the model</a> &nbsp; <a href="https://github.com/devbyabir/pixeltrace">Source code and reproducible pipeline</a></p>
+  </section>
+</main>
+<footer class="wrap small" id="footer"></footer>
+<script type="module">
+import { footer } from "./assets/footer.js";
+footer(document.querySelector("#footer"));
+const R = await (await fetch("assets/results.json", { cache: "no-cache" })).json();
+const dep = R.models.find((m) => m.run === R.deployment.run);
+const get = (p) => p.split(".").reduce((o, k) => (o == null ? o : k === "dep" ? dep : o[k]), { ...R, m: { dep } });
+const F = { pct: (v) => `${(100 * v).toFixed(1)} %`, f3: (v) => v.toFixed(3), int: (v) => v.toLocaleString("en-US"),
+  "ci-pct": (v) => `${(100 * v[0]).toFixed(1)}–${(100 * v[1]).toFixed(1)} %` };
+document.querySelectorAll("[data-k]").forEach((e) => { const v = get(e.dataset.k); if (v != null) e.textContent = e.dataset.f ? F[e.dataset.f](v) : v; });
+document.querySelector("#results tbody").innerHTML = R.models.map((m) => `<tr><td>${m.label}${m.run === dep.run ? " (deployed)" : ""}</td><td>${m.params_m.toFixed(1)}</td>
+  <td>${m.best_val_roc_auc.toFixed(3)}</td><td>${(100 * m.accuracy).toFixed(1)} % (${(100 * m.accuracy_95ci[0]).toFixed(1)}–${(100 * m.accuracy_95ci[1]).toFixed(1)})</td>
+  <td>${m.roc_auc.toFixed(3)} (${m.roc_auc_95ci[0].toFixed(3)}–${m.roc_auc_95ci[1].toFixed(3)})</td></tr>`).join("");
+</script>
+</body>
+</html>

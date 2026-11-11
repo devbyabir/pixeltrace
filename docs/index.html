@@ -5,17 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PixelTrace</title>
 <meta name="description" content="PixelTrace: an audited AI-generated vs real image classifier, with honest evaluation and an in-browser demo.">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=1.0.1">
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Portfolio project · Abir Ahmmed (devbyabir)</p>
+    <nav class="site-nav"><a href="index.html" aria-current="page">Overview &amp; demo</a><a href="dashboard.html">Results</a><a href="report.html">Report</a><a href="https://github.com/devbyabir/pixeltrace">Code</a></nav>
+    <p class="eyebrow">Machine-learning portfolio project · Abir Ahmmed (devbyabir)</p>
     <h1>PixelTrace</h1>
-    <p class="lede">Classifying AI-generated vs real images, after finding out why the first version's 99&nbsp;% accuracy couldn't be trusted.</p>
-    <nav class="toc">
-      <a href="#audit">Audit</a><a href="#results">Results</a><a href="#demo">Try it</a><a href="#limits">Limitations</a><a href="#repro">Reproduce</a>
-    </nav>
+    <p class="lede">A deep-learning model that scores how likely an image is to be AI-generated, built after finding out why my first version's 99&nbsp;% accuracy couldn't be trusted.</p>
+    <div class="cards intro">
+      <article class="card"><h3>1 · Found the flaws</h3><p>The original notebooks leaked test images into training, stored almost every image twice, and their labels were predictable from file metadata alone.</p></article>
+      <article class="card"><h3>2 · Rebuilt it properly</h3><p>De-duplicated data, a frozen split, shortcut removal, model choice on validation only, confidence intervals and automated verification.</p></article>
+      <article class="card"><h3>3 · Honest result</h3><p><strong data-k="headline.acc">…</strong> test accuracy (ROC-AUC <span data-k="headline.auc">…</span>) on unseen images. Lower than 99 %, but real.</p></article>
+    </div>
+    <p><a class="cta" href="#demo">Try it on an image</a> &nbsp; <a href="dashboard.html">See the results dashboard</a> · <a href="report.html">Read the 2-minute report</a></p>
   </div>
 </header>
 
@@ -46,6 +50,7 @@
 
   <section id="demo">
     <h2>Try the deployed model in your browser</h2>
+    <p>No installation: choose a JPEG, PNG or WebP image (or a test pattern below). The page prepares it exactly as during training and runs the trained network locally with ONNX Runtime Web. The first run downloads the 16 MB model.</p>
     <p class="warn"><strong>This is a model score, not proof of authenticity.</strong> The model was trained on 1,400 images from unknown generators and can be confidently wrong, especially on generators, edits or compressions it never saw. Your image never leaves your device: it is processed locally by ONNX Runtime Web.</p>
     <div class="demo">
       <label class="drop" id="drop">
@@ -85,11 +90,9 @@
   </section>
 </main>
 
-<footer class="wrap small">
-  <p>© Abir Ahmmed (devbyabir). All rights reserved; no open-source licence. Built with PyTorch, timm and ONNX Runtime Web.</p>
-</footer>
+<footer class="wrap small" id="footer"></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
-<script type="module" src="assets/app.js"></script>
+<script type="module" src="assets/app.js?v=1.0.1"></script>
 </body>
 </html>

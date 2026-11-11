@@ -71,7 +71,11 @@ python -m pixeltrace.inference --run results/runs/<model> my_image.jpg
 
 On Colab, [`notebooks/pixeltrace_colab.ipynb`](notebooks/pixeltrace_colab.ipynb) runs the same pipeline. Full training refuses to start without a verified persistent backup (Google Drive): the best checkpoint is copied there on every validation improvement, and each finished model as soon as it completes. Every step stops on the first error, and `pixeltrace.verify` fails unless all artifacts exist and agree: checkpoint reload, raw-file inference, metrics vs saved predictions, validation-based deployment choice and ONNX parity.
 
-## Browser demo
+## Live demo
+
+**Website:** https://devbyabir.github.io/pixeltrace/ (overview and in-browser demo, [results dashboard](https://devbyabir.github.io/pixeltrace/dashboard.html), [project report](https://devbyabir.github.io/pixeltrace/report.html)).
+
+### How the browser demo works
 
 [`docs/`](docs) is a static showcase page (GitHub Pages-ready). It runs the deployed ONNX model with ONNX Runtime Web, so images stay on the visitor's device. The browser preprocessing is a port of the Python pipeline, including Pillow's fixed-point resampler, and [`docs/parity.html`](docs/parity.html) checks it stage by stage against Python on synthetic test patterns. The page shows model scores, not proof that an image is authentic.
 
@@ -100,4 +104,4 @@ legacy/                   original notebooks (outputs kept, dataset-image output
 - Author: **Abir Ahmmed (devbyabir)**. The legacy notebooks are the author's earlier work.
 - Dataset: received from a senior colleague. Original source and licence unknown, see [DATASET.md](DATASET.md).
 - Built with [PyTorch](https://pytorch.org/), [timm](https://github.com/huggingface/pytorch-image-models) (pretrained ImageNet weights), [ONNX Runtime](https://onnxruntime.ai/) and [Pillow](https://python-pillow.org/). The browser resampler follows Pillow's `libImaging/Resample.c`.
-- **No open-source licence.** © Abir Ahmmed, all rights reserved. You may view the code, but reuse requires permission.
+- **All rights reserved, no open-source licence** (see [LICENSE](LICENSE)). © 2026 Abir Ahmmed. The code and the trained model may be viewed and the demo used, but not reused without permission. The browser demo necessarily downloads the model to the visitor's device; this notice states rights and does not technically prevent copying.
