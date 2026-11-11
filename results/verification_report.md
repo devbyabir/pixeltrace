@@ -32,8 +32,18 @@ Two independent full runs produced identical test metrics, and an ONNX file with
 | Downloaded result ZIPs readable (`testzip`) | Windows | simple_cnn, final: OK |
 | Public package: no dataset images, checkpoints, private dataset link, account data, credentials, local paths | git file list audit | clean (112 files, 21.8 MB) |
 
+## Deployed website (https://devbyabir.github.io/pixeltrace/)
+
+| Check | Outcome |
+|---|---|
+| Every deployed file (pages, scripts, results.json, ONNX model) byte-identical to the repository | MATCH (model SHA-256 `710f9b71…`) |
+| Live parity page in Chrome 157 (7 synthetic samples) | preprocessing bit-exact; max \|ΔP\| = 2.7e-5; labels agree |
+| Live demo, 8 real test images uploaded through the page's file picker (`live_demo_check.json`) | max \|ΔP\| vs verified Python predictions = 3.3e-6; 8/8 labels agree, including the 3 images the model gets wrong |
+| Network during uploads | only GET requests for ONNX Runtime Web (jsDelivr) and the model; no image leaves the browser |
+| Dashboard and report rendered from results.json; no horizontal scroll at 375 px | PASS |
+
 ## Not covered
 
 - Training was not re-run on this Windows PC, where PyTorch DLLs are blocked by Windows Application Control. Every PyTorch step ran on fresh Colab VMs.
-- The site was tested on a local server, not on GitHub Pages (not deployed, by request), and only in Chromium.
+- The site was tested in Chromium-based browsers only (Chrome 157 and the Claude desktop browser); not in Firefox or Safari.
 - Generalisation to other generators or datasets was not tested (see README limitations).
