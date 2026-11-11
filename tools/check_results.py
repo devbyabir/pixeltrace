@@ -88,7 +88,11 @@ def main():
     onnx = json.loads((res / "onnx" / "onnx_parity.json").read_text())
     check(onnx.get("passed") and onnx["run"] == dep["run"],
           f"ONNX parity passed for deployment model (max |dp|={onnx['torch_vs_onnx_max_abs_diff']:.1e})")
-    check((res / "onnx" / onnx["onnx"]).exists(), "ONNX file present")
+    import hashlib
+    cands = [res / "onnx" / onnx["onnx"], ROOT / "docs" / "model" / "pixeltrace.onnx"]
+    found = [c for c in cands if c.exists()]
+    check(bool(found) and all(hashlib.sha256(c.read_bytes()).hexdigest() == onnx["onnx_sha256"] for c in found),
+          f"ONNX file present with the hash from onnx_parity.json ({', '.join(str(c.relative_to(ROOT)) for c in found)})")
     print("\nLOCAL CHECK", "PASSED" if not fails else f"FAILED ({len(fails)})")
     sys.exit(1 if fails else 0)
 
